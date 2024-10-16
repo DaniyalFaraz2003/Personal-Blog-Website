@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import AdminPanelLayout from "@/Components/admin-panel/admin-panel-layout";
 import {ThemeProvider} from "@/Components/ThemeProvider";
 import "./globals.css";
 
@@ -31,7 +32,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
       >
-          {children}
+      <AdminPanelLayout>{children}</AdminPanelLayout>
       </ThemeProvider>
       </body>
     </html>

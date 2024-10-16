@@ -1,9 +1,10 @@
-import React from "react"
+//page.tsx
+import { ContentLayout } from "@/components/admin-panel/content-layout";
 
-export default function Home() {
-  return (
-    <div className="font-bold ">
-      Hello World
-    </div>
-  );
+export default function Page() {
+    return (
+        <ContentLayout title="Test">
+            <div>Test</div>
+        </ContentLayout>
+    );
 }
