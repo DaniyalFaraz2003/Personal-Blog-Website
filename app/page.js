@@ -3,7 +3,7 @@ import { ContentLayout } from "@/components/admin-panel/content-layout";
 
 export default function Page() {
     return (
-        <ContentLayout title="Test">
+        <ContentLayout title="My Personal Website">
             <div>Test</div>
         </ContentLayout>
     );
