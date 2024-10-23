@@ -81,9 +81,6 @@ export default function HeroSectionGradientBackground() {
         <>
             {/* Hero */}
             <div className="relative overflow-hidden">
-                {/* Gradients */}
-
-                {/* End Gradients */}
                 <div className="relative z-10">
                     <div className="container py-5 lg:py-16">
                         <div className="max-w-2xl text-center mx-auto">
@@ -115,7 +112,7 @@ export default function HeroSectionGradientBackground() {
                             </div>
                             {/* Buttons */}
                             <div className="mt-8 gap-3 flex justify-center">
-                                <Button size={"lg"}>Continue</Button>
+                                <a href={"#about"}><Button size={"lg"}>Continue</Button></a>
                             </div>
                             {/* End Buttons */}
                         </div>
