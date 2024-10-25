@@ -98,10 +98,9 @@ export default function HeroSectionGradientBackground() {
                                 fontSize="24px"
                                 loop
                                 typingSpeed={60}
-                                delaySpeed={1000}
+                                delaySpeed={200}
                                 backspace
                                 height="60px"
-                                dynamicDelay
                                 style={{fontFamily: "Helvetica" , fontWeight: "bold", marginTop: "10px"}}
                             />
                             {/* End Title */}
@@ -110,11 +109,6 @@ export default function HeroSectionGradientBackground() {
                                     And welcome to my digital corner! Where I share insights, projects, and blogs on the latest trends in tech. Join me on this journey of innovation and problem-solving!
                                 </p>
                             </div>
-                            {/* Buttons */}
-                            <div className="mt-8 gap-3 flex justify-center">
-                                <a href={"#about"}><Button size={"lg"}>Continue</Button></a>
-                            </div>
-                            {/* End Buttons */}
                         </div>
                     </div>
                 </div>

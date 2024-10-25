@@ -22,7 +22,7 @@ import {motion} from "framer-motion";
 
 export function CardWithForm() {
     return (
-        <Card className="w-[350px]">
+        <Card className="w-full">
             <CardHeader>
                 <CardTitle>Create project</CardTitle>
                 <CardDescription>Deploy your new project in one-click.</CardDescription>
@@ -64,9 +64,13 @@ export default function HomeBlogs () {
         <>
             <section className='z-0 flex flex-col mb-10 mt-10'>
                 <div className="z-0">
-                    <p className={"sm:text-[18px] text-[14px] uppercase tracking-wider"}>Introduction</p>
-                    <p className={"font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"}>Overview.</p>
+                    <p className={"sm:text-[18px] text-[14px] uppercase tracking-wider"}>Read</p>
+                    <p className={"font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"}>My Blog</p>
+                    <p className={"text-muted-foreground md:text-[20px] sm:text-[13px] xs:text-[10px] text-[10px]"}>To gain insights on problem solving and information on latest tech trends.</p>
 
+                </div>
+                <div className={"flex flex-col gap-5 my-10"}>
+                    <CardWithForm />
                 </div>
             </section>
         </>

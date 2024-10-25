@@ -160,8 +160,8 @@ const Overview = () => {
     ];
     return (
         <>
-            <span className='hash-span' id={"about"}></span>
-            <section className='z-0 flex flex-col mb-10 mt-16'>
+            <span className='hash-span'></span>
+            <section className='z-0 flex flex-col mb-10 mt-10'>
                 <div className="z-0">
                     <motion.div variants={textVariant()}>
                         <p className={"sm:text-[18px] text-[14px] uppercase tracking-wider"}>Introduction</p>
