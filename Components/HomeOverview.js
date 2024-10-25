@@ -139,7 +139,7 @@ const ServiceCard = ({ index, title, icon, id }) => {
     );
 }
 
-const About = () => {
+const Overview = () => {
     const services = [
         {
             title: "Web Developer",
@@ -188,4 +188,4 @@ const About = () => {
 
 }
 
-export default About;
+export default Overview;

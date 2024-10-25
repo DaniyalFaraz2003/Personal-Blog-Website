@@ -2,7 +2,7 @@
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import HeroSection from "@/Components/HeroSection";
 import StarsCanvas from "@/Components/Stars";
-import About from "@/Components/About"
+import Overview from "@/Components/HomeOverview"
 
 export default function Page() {
     return (
@@ -11,7 +11,7 @@ export default function Page() {
                 <HeroSection />
                 <StarsCanvas />
             </div>
-            <About />
+            <Overview />
         </ContentLayout>
     );
 }
