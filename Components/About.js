@@ -1,8 +1,13 @@
 "use client";
 
 import React, {useEffect} from 'react'
+import Image from "next/image"
 import { Tilt } from 'react-tilt'
 import { motion } from 'framer-motion'
+import webdevLogo from "../assets/web.png"
+import botLogo from "../assets/bot.png"
+import softwareLogo from "../assets/SD.png"
+import testerLogo from "../assets/tester.png"
 
 const textVariant = (delay) => {
     return {
@@ -126,7 +131,7 @@ const ServiceCard = ({ index, title, icon, id }) => {
                     <div className='absolute h-full w-full overflow-hidden rounded-[20px]'>
                         <MatrixRain id={id} />
                     </div>
-                    <img src={icon} alt={title} className='w-16 h-16 object-contain z-10' />
+                    <Image src={icon} alt={title} className='w-16 h-16 object-contain z-10' />
                     <h3 className='text-white text-[20px] font-bold text-center z-10'>{title}</h3>
                 </div>
             </motion.div>
@@ -138,19 +143,19 @@ const About = () => {
     const services = [
         {
             title: "Web Developer",
-            icon: "web",
+            icon: webdevLogo,
         },
         {
             title: "Bot Developer",
-            icon: "mobile",
+            icon: botLogo,
         },
         {
             title: "Software Developer",
-            icon: "backend",
+            icon: softwareLogo,
         },
         {
             title: "Unit Tester",
-            icon: "creator",
+            icon: testerLogo,
         },
     ];
     return (
