@@ -161,7 +161,7 @@ const Overview = () => {
     return (
         <>
             <span className='hash-span'></span>
-            <section className='z-0 flex flex-col mb-10 mt-10'>
+            <section className='z-0 flex flex-col mb-16 mt-10'>
                 <div className="z-0">
                     <motion.div variants={textVariant()}>
                         <p className={"sm:text-[18px] text-[14px] uppercase tracking-wider"}>Introduction</p>
@@ -176,7 +176,7 @@ const Overview = () => {
 
                     </motion.p>
 
-                    <div className='mt-20 flex flex-row gap-5'>
+                    <div className='mt-16 flex flex-row gap-5'>
                         {services.map((service, index) => {
                             return (<ServiceCard key={service.title} index={index} id={index} {...service} />)
                         })}

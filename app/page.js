@@ -4,6 +4,7 @@ import HeroSection from "@/Components/HeroSection";
 import StarsCanvas from "@/Components/Stars";
 import Overview from "@/Components/HomeOverview"
 import HomeBlog from "@/Components/HomeBlog"
+import HomeProject from "@/Components/HomePoject"
 
 export default function Page() {
     return (
@@ -14,6 +15,7 @@ export default function Page() {
             </div>
             <Overview />
             <HomeBlog />
+            <HomeProject />
         </ContentLayout>
     );
 }
