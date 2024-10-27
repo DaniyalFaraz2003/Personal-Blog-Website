@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { Button } from "@/Components/ui/button"
+import Image from "next/image"
 import {
     Card,
     CardContent,
@@ -10,26 +11,41 @@ import {
     CardTitle,
 } from "@/Components/ui/card"
 import {Badge} from "@/Components/ui/badge"
+import user from "../assets/user.png"
 import {motion} from "framer-motion";
 
-export function CardWithForm({title, description, badges}) {
+export function BlogCard({date, title, description, badges, image, username}) {
     return (
-        <Card className="w-full">
-            <CardHeader>
-                <CardDescription className={"text-lg"}>📝 Blog Post</CardDescription>
-            </CardHeader>
-            <CardContent className={"space-y-4"}>
-                <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
-                <CardDescription className={"text-xl"}>
-                    {description}
-                </CardDescription>
-            </CardContent>
-            <CardFooter className="flex mt-5 justify-between">
-                <CardDescription className={"flex gap-3"}>
-                    {badges.map((badge, index) => <Badge key={index}>{badge}</Badge>)}
-                </CardDescription>
-            </CardFooter>
-        </Card>
+        <div className={"flex flex-row gap-5"}>
+            <Card className="basis-[75%]">
+                <CardHeader>
+                    <CardDescription className={"text-lg"}>📝 Blog Post</CardDescription>
+                </CardHeader>
+                <CardContent className={"space-y-4"}>
+                    <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
+                    <CardDescription className={"text-xl"}>
+                        {description}
+                    </CardDescription>
+                </CardContent>
+                <CardFooter className="flex mt-5 justify-between">
+                    <CardDescription className={"flex gap-3"}>
+                        {badges.map((badge, index) => <Badge key={index}>{badge}</Badge>)}
+                    </CardDescription>
+                </CardFooter>
+            </Card>
+            <Card className={"basis-[25%] h-fit w-fit"}>
+                <CardHeader className={"space-y-2"}>
+                    <CardDescription>{date}</CardDescription>
+                    <div className={"flex gap-3"}>
+                        <Image src={image} alt={"user"} className='w-16 h-16 object-contain z-10'/>
+                        <div className={""}>
+                            <CardTitle className={"text-lg"}>{username}</CardTitle>
+                            <CardDescription>Author</CardDescription>
+                        </div>
+                    </div>
+                </CardHeader>
+            </Card>
+        </div>
     )
 }
 
@@ -44,8 +60,8 @@ export default function HomeBlogs () {
 
                 </div>
                 <div className={"flex flex-col gap-5 my-10"}>
-                    <CardWithForm title={"Chris Corner: Open Striped"} description={"Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]"}
-                        badges={["C++", "Programming", "Problem-Solving"]}
+                    <BlogCard username={"Daniyal Faraz"} date={new Date().toDateString()} title={"Chris Corner: Open Striped"} description={"Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]"}
+                        badges={["C++", "Programming", "Problem-Solving"]} image={user}
                     />
                 </div>
             </section>
