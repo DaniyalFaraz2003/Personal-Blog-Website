@@ -9,51 +9,25 @@ import {
     CardHeader,
     CardTitle,
 } from "@/Components/ui/card"
-import { Input } from "@/Components/ui/input"
-import { Label } from "@/Components/ui/label"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/Components/ui/select"
+import {Badge} from "@/Components/ui/badge"
 import {motion} from "framer-motion";
 
-export function CardWithForm() {
+export function CardWithForm({title, description, badges}) {
     return (
         <Card className="w-full">
             <CardHeader>
-                <CardTitle>Create project</CardTitle>
-                <CardDescription>Deploy your new project in one-click.</CardDescription>
+                <CardDescription className={"text-lg"}>📝 Blog Post</CardDescription>
             </CardHeader>
-            <CardContent>
-                <form>
-                    <div className="grid w-full items-center gap-4">
-                        <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="name">Name</Label>
-                            <Input id="name" placeholder="Name of your project" />
-                        </div>
-                        <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="framework">Framework</Label>
-                            <Select>
-                                <SelectTrigger id="framework">
-                                    <SelectValue placeholder="Select" />
-                                </SelectTrigger>
-                                <SelectContent position="popper">
-                                    <SelectItem value="next">Next.js</SelectItem>
-                                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                                    <SelectItem value="astro">Astro</SelectItem>
-                                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    </div>
-                </form>
+            <CardContent className={"space-y-4"}>
+                <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
+                <CardDescription className={"text-xl"}>
+                    {description}
+                </CardDescription>
             </CardContent>
-            <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
+            <CardFooter className="flex mt-5 justify-between">
+                <CardDescription className={"flex gap-3"}>
+                    {badges.map((badge, index) => <Badge key={index}>{badge}</Badge>)}
+                </CardDescription>
             </CardFooter>
         </Card>
     )
@@ -70,7 +44,9 @@ export default function HomeBlogs () {
 
                 </div>
                 <div className={"flex flex-col gap-5 my-10"}>
-                    <CardWithForm />
+                    <CardWithForm title={"Chris Corner: Open Striped"} description={"Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]"}
+                        badges={["C++", "Programming", "Problem-Solving"]}
+                    />
                 </div>
             </section>
         </>
