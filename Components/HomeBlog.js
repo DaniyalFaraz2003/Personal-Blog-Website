@@ -14,12 +14,13 @@ import {Badge} from "@/Components/ui/badge"
 import user from "../assets/user.png"
 import {motion} from "framer-motion";
 
-export function BlogCard({date, title, description, badges, image, username}) {
+export function BlogCard({date, title, description, badges, image, username, latest}) {
     return (
         <div className={"flex flex-row gap-5"}>
             <Card className="basis-[75%]">
-                <CardHeader>
+                <CardHeader className={"flex flex-row items-center"}>
                     <CardDescription className={"text-lg"}>📝 Blog Post</CardDescription>
+                    {latest && <Badge className={"ml-auto text-md"} variant="secondary">Latest</Badge>}
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
                     <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
@@ -50,6 +51,27 @@ export function BlogCard({date, title, description, badges, image, username}) {
 }
 
 export default function HomeBlogs () {
+    const blogData = [
+        {
+            username: "Daniyal Faraz",
+            date: new Date().toDateString(),
+            title: "Chris Corner: Open Striped",
+            description: "Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]",
+            badges: ["C++", "Programming", "Problem-Solving"],
+            image: user,
+            latest: true
+        },
+        {
+            username: "Daniyal Faraz",
+            date: new Date().toDateString(),
+            title: "WebAssembly vs JavaScript: A Comparison",
+            description: "WebAssembly and JavaScript are two pivotal technologies in modern web development, each with distinct strengths and applications. This article provides a comparison of WebAssembly and JavaScript, examining their performance, portability, ease of use, security, and community support [..]",
+            badges: ["JavaScript", "Programming"],
+            image: user,
+            latest: true
+        }
+    ]
+
     return (
         <>
             <section className='z-0 flex flex-col mb-10 mt-10'>
@@ -60,9 +82,9 @@ export default function HomeBlogs () {
 
                 </div>
                 <div className={"flex flex-col gap-5 my-10"}>
-                    <BlogCard username={"Daniyal Faraz"} date={new Date().toDateString()} title={"Chris Corner: Open Striped"} description={"Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]"}
-                        badges={["C++", "Programming", "Problem-Solving"]} image={user}
-                    />
+                    {blogData.map((blog, index) => {
+                        return <BlogCard key={index} {...blog}/>
+                    })}
                 </div>
             </section>
         </>
