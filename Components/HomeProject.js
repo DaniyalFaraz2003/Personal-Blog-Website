@@ -1,5 +1,6 @@
 import React from "react"
 
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -10,20 +11,21 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
+import project1 from "../assets/Project1.jpeg"
 
 function ProjectCard() {
     return (
         <>
             <Card className="w-[350px]">
                 <CardHeader>
-                    <CardTitle>Create project</CardTitle>
-                    <CardDescription>Deploy your new project in one-click.</CardDescription>
+                    <Image src={project1} alt="Project" />
                 </CardHeader>
-                <CardContent>
-                    <CardDescription>This is some content in card</CardDescription>
+                <CardContent className={"flex flex-col gap-3"}>
+                    <CardTitle className={"font-bold text-lg"}>Inventory Management System</CardTitle>
+                    <CardDescription className={"text-md"}>An inventory management system designed to streamline items handling processes and automate inventory mangement tasks</CardDescription>
                 </CardContent>
-                <CardFooter className="flex justify-between">
-                    <Button variant="outline">Cancel</Button>
+                <CardFooter className="flex items-center justify-between">
+                    <Button variant="outline">Details</Button>
                     <Button>Deploy</Button>
                 </CardFooter>
             </Card>
