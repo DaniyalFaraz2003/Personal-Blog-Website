@@ -4,7 +4,7 @@ import HeroSection from "@/Components/HeroSection";
 import StarsCanvas from "@/Components/Stars";
 import Overview from "@/Components/HomeOverview"
 import HomeBlog from "@/Components/HomeBlog"
-import HomeProject from "@/Components/HomePoject"
+import HomeProject from "@/Components/HomeProject"
 
 export default function Page() {
     return (
