@@ -28,7 +28,7 @@ function ProjectCard({img, title, description}) {
                 </CardContent>
                 <CardFooter className="flex justify-between">
                         <Button variant="outline">Details</Button>
-                        <Button className={"rounded-full w-fit p-0 h-fit"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
+                        <Button className={"rounded-full w-fit p-0 h-fit bg-white"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
                 </CardFooter>
             </Card>
         </>

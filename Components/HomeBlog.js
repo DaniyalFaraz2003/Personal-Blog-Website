@@ -1,4 +1,7 @@
+"use client";
+
 import * as React from "react"
+
 
 import {
     Card,
@@ -7,19 +10,21 @@ import {
     CardHeader,
     CardTitle,
 } from "@/Components/ui/card"
+import {useState} from "react";
 
 function BlogCard({date, title, description, badges}) {
+    const [hovered, setHovered] = useState(false);
     return (
-        <div className={"flex gap-5"}>
-            <Card className="">
+        <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={"flex gap-5"}>
+            <Card className="bg-transparent rounded-none border-y-0 dark:hover:bg-[#2e2e33] hover:bg-gray-200">
                 <CardHeader className={"flex flex-row items-center"}>
-                    <CardTitle className={"text-lg"}>{title}</CardTitle>
+                    <CardTitle className={`text-xl font-bold ${hovered ? "underline" : ""}`}>{title}</CardTitle>
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
                     <CardDescription>{date}</CardDescription>
-                    <div className={"flex"}>
+                    <div className={"flex gap-3"}>
                         {badges.map((badge, index) => {
-                            return (<CardDescription className={"text-lg"} key={index}>{badge}</CardDescription>)
+                            return (<CardDescription className={"text-sm font-semibold text-gray-600"} key={index}># {badge}</CardDescription>)
                         })}
                     </div>
                     <CardDescription>{description}</CardDescription>
