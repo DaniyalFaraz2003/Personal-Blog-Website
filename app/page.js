@@ -8,7 +8,7 @@ import HomeProject from "@/Components/HomeProject"
 
 export default function Page() {
     return (
-        <ContentLayout title="My Personal Website">
+        <ContentLayout title="Home">
             <div className={"relative z-0"}>
                 <HeroSection />
                 <StarsCanvas />
