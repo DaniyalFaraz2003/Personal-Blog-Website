@@ -8,9 +8,9 @@ import user from "@/assets/user.png";
 
 function HeroSection() {
     return (
-        <section>
-            <h1 className={"text-5xl font-extrabold"}>Blog</h1>
-            <p>This is where I post tips and tricks for problem solving as well as new technology trends and resources.</p>
+        <section className={"flex flex-col gap-7"}>
+            <h1 className={"text-7xl font-extrabold"}>Blog</h1>
+            <p className={"text-xl font-leading w-[50%] text-wrap"}>This is where I post tips and tricks for problem solving as well as new technology trends and resources.</p>
         </section>
     )
 }
