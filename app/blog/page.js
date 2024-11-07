@@ -5,6 +5,7 @@ import {Badge} from "@/Components/ui/badge";
 import Image from "next/image";
 import * as React from "react";
 import user from "@/assets/user.png";
+import Link from "next/link"
 
 function HeroSection() {
     return (
@@ -27,7 +28,7 @@ function Blogs() {
     )
 }
 
-export function BlogCard({date, title, description, badges, image, username, latest}) {
+export function BlogCard({id, date, title, description, badges, image, username, latest}) {
     return (
         <div className={"flex flex-row gap-5"}>
             <Card className="basis-[75%]">
@@ -36,7 +37,9 @@ export function BlogCard({date, title, description, badges, image, username, lat
                     {latest && <Badge className={"ml-auto text-md"} variant="secondary">Latest</Badge>}
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
+                    <Link href={`/blog/${id}`} key={id}>
                     <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
+                    </Link>
                     <CardDescription className={"text-xl"}>
                         {description}
                     </CardDescription>
@@ -67,6 +70,7 @@ export function BlogCard({date, title, description, badges, image, username, lat
 
 const blogData = [
     {
+        id: 1,
         username: "Daniyal Faraz",
         date: new Date().toDateString(),
         title: "Chris Corner: Open Striped",
@@ -76,6 +80,7 @@ const blogData = [
         latest: true
     },
     {
+        id: 2,
         username: "Daniyal Faraz",
         date: new Date().toDateString(),
         title: "WebAssembly vs JavaScript: A Comparison",
@@ -90,7 +95,7 @@ const blogData = [
 
 export default function Page() {
     return (
-        <ContentLayout title="Blog">
+        <ContentLayout pathname="Blog">
             <HeroSection />
             <Blogs />
         </ContentLayout>
