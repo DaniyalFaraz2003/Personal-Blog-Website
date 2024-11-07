@@ -15,11 +15,14 @@ function BreadCrumbComponent({pathname}) {
       <Breadcrumb>
         <BreadcrumbList>
           {pathname.split("/").map((item, index, list) => {
-              let link = "";
+              let link = "/";
               if (item === "Home") {
                   link = "/"
               } else {
-                  link = item.toLowerCase();
+                  for (let i = 0; i < index; i++) {
+                      link += list[i].toLowerCase() + "/";
+                  }
+                  link += item.toLowerCase();
               }
 
             return (
