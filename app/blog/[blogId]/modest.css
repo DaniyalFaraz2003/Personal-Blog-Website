@@ -1,0 +1,220 @@
+@media  print {
+    .styledDiv *,
+    .styledDiv *:before,
+    .styledDiv *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .styledDiv a,
+    .styledDiv a:visited {
+        text-decoration: underline;
+    }
+
+    .styledDiv a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    .styledDiv abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .styledDiv a[href^="#"]:after,
+    .styledDiv a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    .styledDiv pre,
+    .styledDiv blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    .styledDiv thead {
+        display: table-header-group;
+    }
+
+    .styledDiv tr,
+    .styledDiv img {
+        page-break-inside: avoid;
+    }
+
+    .styledDiv img {
+        max-width: 100% !important;
+    }
+
+    .styledDiv p,
+    .styledDiv h2,
+    .styledDiv h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    .styledDiv h2,
+    .styledDiv h3 {
+        page-break-after: avoid;
+    }
+}
+
+.styledDiv pre,
+.styledDiv code {
+    font-family: Menlo, Monaco, "Courier New", monospace;
+    color: black;
+}
+
+.styledDiv pre {
+    padding: .5rem;
+    line-height: 1.25;
+
+}
+
+.styledDiv a,
+.styledDiv a:visited {
+    color: #3498db;
+}
+
+.styledDiv a:hover,
+.styledDiv a:focus,
+.styledDiv a:active {
+    color: #2980b9;
+}
+
+.modest-no-decoration {
+    text-decoration: none;
+}
+
+html {
+    font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.styledDiv body {
+    line-height: 1.85;
+}
+
+.styledDiv p,
+.modest-p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+}
+
+.styledDiv h1,
+.modest-h1,
+.styledDiv h2,
+.modest-h2,
+.styledDiv h3,
+.modest-h3,
+.styledDiv h4,
+.modest-h4 {
+    margin: 1.414rem 0 .5rem;
+    font-weight: inherit;
+    line-height: 1.42;
+}
+
+.styledDiv h1,
+.modest-h1 {
+    margin-top: 0;
+    font-size: 3.998rem;
+}
+
+.styledDiv h2,
+.modest-h2 {
+    font-size: 2.827rem;
+}
+
+.styledDiv h3,
+.modest-h3 {
+    font-size: 1.999rem;
+}
+
+.styledDiv h4,
+.modest-h4 {
+    font-size: 1.414rem;
+}
+
+.styledDiv h5,
+.modest-h5 {
+    font-size: 1.121rem;
+}
+
+.styledDiv h6,
+.modest-h6 {
+    font-size: .88rem;
+}
+
+.styledDiv small,
+.modest-small {
+    font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+.styledDiv img,
+.styledDiv canvas,
+.styledDiv iframe,
+.styledDiv video,
+.styledDiv svg,
+.styledDiv select,
+.styledDiv textarea {
+    max-width: 100%;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+@import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
+
+.styledDiv html {
+    font-size: 18px;
+    max-width: 100%;
+}
+
+.styledDiv body {
+    color: #444;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 48rem;
+    line-height: 1.45;
+    padding: .25rem;
+}
+
+.styledDiv h1,
+.styledDiv h2,
+.styledDiv h3,
+.styledDiv h4,
+.styledDiv h5,
+.styledDiv h6 {
+    font-family: Arimo, Helvetica, sans-serif;
+}
+
+.styledDiv h1,
+.styledDiv h2,
+.styledDiv h3 {
+    border-bottom: 2px solid #fafafa;
+    margin-bottom: 1.15rem;
+    padding-bottom: .5rem;
+    text-align: center;
+}
+
+.styledDiv blockquote {
+    border-left: 8px solid #fafafa;
+    padding: 1rem;
+}
+
+.styledDiv pre,
+.styledDiv code {
+    background-color: gray;
+}
