@@ -1,18 +1,29 @@
 "use client";
 
 import {ContentLayout} from "@/Components/admin-panel/content-layout";
-import Highlight from '@tiptap/extension-highlight'
 import Typography from '@tiptap/extension-typography'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import remarkHtml from 'remark-html'
 import remarkParse from 'remark-parse'
 import {unified} from 'unified'
-
+import Highlight from '@tiptap/extension-highlight';
+import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
+import { all, createLowlight } from 'lowlight'
+import 'highlight.js/styles/github.css'; // Import your preferred highlight.js theme
 import * as React from "react";
 import { useEffect, useState } from "react";
 import "./editor.css"
 
+import javascript from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import cpp from 'highlight.js/lib/languages/cpp'
+
+const lowlight = createLowlight(all)
+
+lowlight.register('javascript', javascript);
+lowlight.register('python', python);
+lowlight.register('cpp', cpp)
 
 const markdownContent = "# **Introduction to C++ Programming**\n" +
     "C++ is a powerful, high-performance programming language commonly used for system software, game development, and applications where efficiency is critical. This article introduces the basics of C++ and why it's a valuable skill for developers.\n" +
@@ -45,10 +56,16 @@ export default function Page({ params }) {
 
     const editor = useEditor({
         extensions: [
-            StarterKit,
+            StarterKit.configure({
+                codeBlock: false, // Disable the default code block
+            }),
+            CodeBlockLowlight.configure({
+                lowlight, // Pass the lowlight instance
+            }),
             Highlight,
             Typography,
         ],
+
         content: htmlContent, // Initial empty content
         editable: false,
     });
