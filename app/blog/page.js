@@ -91,8 +91,6 @@ const blogData = [
     }
 ]
 
-
-
 export default function Page() {
     return (
         <ContentLayout pathname="Blog">

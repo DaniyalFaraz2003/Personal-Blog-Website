@@ -1,13 +1,20 @@
 "use client";
 
 import {ContentLayout} from "@/Components/admin-panel/content-layout";
-import {Remark, useRemark} from 'react-remark';
+import Highlight from '@tiptap/extension-highlight'
+import Typography from '@tiptap/extension-typography'
+import { EditorContent, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import remarkHtml from 'remark-html'
+import remarkParse from 'remark-parse'
+import {unified} from 'unified'
+
 import * as React from "react";
-import {useEffect} from "react";
-import "./modest.css"
+import { useEffect, useState } from "react";
+import "./editor.css"
 
 
-const markdown = "# Introduction to C++ Programming\n" +
+const markdownContent = "# **Introduction to C++ Programming**\n" +
     "C++ is a powerful, high-performance programming language commonly used for system software, game development, and applications where efficiency is critical. This article introduces the basics of C++ and why it's a valuable skill for developers.\n" +
     "## Why Learn C++?\n" +
     "C++ offers several advantages, making it popular in both industry and academia:\n" +
@@ -33,17 +40,43 @@ const markdown = "# Introduction to C++ Programming\n" +
 
 export default function Page({ params }) {
     const { blogId } = params;
-    const [reactContent, setMarkdownSource] = useRemark();
+    const [markdown, setMarkdown] = useState(markdownContent);
+    const [htmlContent, setHtmlContent] = useState("");
+
+    const editor = useEditor({
+        extensions: [
+            StarterKit,
+            Highlight,
+            Typography,
+        ],
+        content: htmlContent, // Initial empty content
+        editable: false,
+    });
 
     useEffect(() => {
-        setMarkdownSource(markdown);
-    }, []);
+        const convertMarkdownToHtml = async () => {
+            const file = await unified()
+                .use(remarkParse)
+                .use(remarkHtml)
+                .process(markdown);
+
+            const convertedHtml = String(file);
+            setHtmlContent(convertedHtml);
+            console.log(convertedHtml);
+
+            // Dynamically update the editor's content
+            if (editor) {
+                editor.commands.setContent(convertedHtml);
+            }
+        };
+
+        convertMarkdownToHtml();
+    }, [markdown, editor]); // Re-run when markdown or editor instance changes
+
 
     return (
         <ContentLayout pathname={`blog/${blogId}`}>
-            <div className="styledDiv">
-                {reactContent}
-            </div>
+            <EditorContent editor={editor} className={"tiptap-editor"} />
         </ContentLayout>
     );
 }
