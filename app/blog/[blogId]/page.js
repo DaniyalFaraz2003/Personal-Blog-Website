@@ -10,7 +10,7 @@ import {unified} from 'unified'
 import Highlight from '@tiptap/extension-highlight';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { all, createLowlight } from 'lowlight'
-import 'highlight.js/styles/github.css'; // Import your preferred highlight.js theme
+import 'highlight.js/styles/dark.css'; // Import your preferred highlight.js theme
 import * as React from "react";
 import { useEffect, useState } from "react";
 import "./editor.css"

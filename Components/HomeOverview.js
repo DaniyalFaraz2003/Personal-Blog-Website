@@ -1,5 +1,6 @@
 "use client";
 
+import { Card, CardDescription } from '@/components/ui/card'
 import React, {useEffect} from 'react'
 import Image from "next/image"
 import { Tilt } from 'react-tilt'
@@ -124,16 +125,24 @@ const MatrixRain = ({ id }) => {
 
 const ServiceCard = ({ index, title, icon, id }) => {
     return (
-        <Tilt className='w-full border-2 border-white rounded-lg'>
+        <Tilt className='w-full border-2 border-white rounded-md'>
             <motion.div variants={fadeIn("right", "spring", 0.5 * index, 0.75)} className='w-full green-pink-gradient p-[1px] rounded-[20px]'>
-
-                <div options={{ max: 45, scale: 1, speed: 450 }} className='bg-black relative rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'>
-                    <div className='absolute h-full w-full overflow-hidden rounded-[20px]'>
-                        <MatrixRain id={id} />
+                <Card>
+                    <div options={{max: 45, scale: 1, speed: 450}} style={{
+                            borderColor: "rgba(255, 255, 255, 0.5)",
+                            animation: "glow 2s infinite",
+                            boxShadow: "0 0 10px 2px rgba(255, 255, 255, 0.5)",
+                        }}
+                         className='relative rounded-md py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'>
+                        {/*
+                        <div className='absolute h-full w-full overflow-hidden rounded-[20px]'>
+                            <MatrixRain id={id}/>
+                        </div>
+                        */}
+                        <Image src={icon} alt={title} className='w-16 h-16 object-contain z-10'/>
+                        <CardDescription className='text-[20px] font-bold text-center z-10'>{title}</CardDescription>
                     </div>
-                    <Image src={icon} alt={title} className='w-16 h-16 object-contain z-10' />
-                    <h3 className='text-white text-[20px] font-bold text-center z-10'>{title}</h3>
-                </div>
+                </Card>
             </motion.div>
         </Tilt>
     );
