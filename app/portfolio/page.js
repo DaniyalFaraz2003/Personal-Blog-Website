@@ -16,7 +16,7 @@ function HeroSection() {
 
 function ProjectCard({ title, description, image }) {
     return (
-        <div className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
+        <Card className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
             <CardContent className="basis-[3/5]">
                 <CardTitle className="font-extrabold text-3xl mb-2">{title}</CardTitle>
                 <CardDescription className="text-xl">{description}</CardDescription>
@@ -26,7 +26,7 @@ function ProjectCard({ title, description, image }) {
                 alt="project"
                 className="w-64 h-44 object-contain flex-shrink-0 ml-auto"
             />
-        </div>
+        </Card>
     );
 }
 

@@ -18,7 +18,6 @@ export function Menu({
 }) {
   const pathname = usePathname();
   const menuList = getMenuList(pathname);
-
   return (
     (
       <nav className="mt-8 h-full w-full">
@@ -56,7 +55,7 @@ export function Menu({
                           <Button
                             variant={
                               (active === undefined &&
-                                pathname.startsWith(href)) ||
+                                pathname === href) ||
                               active
                                 ? "secondary"
                                 : "ghost"
