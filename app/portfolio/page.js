@@ -18,7 +18,7 @@ function ProjectCard({ title, description, image }) {
     return (
         <Card className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
             <CardContent className="basis-[3/5]">
-                <CardTitle className="font-extrabold text-3xl mb-2">{title}</CardTitle>
+                <CardTitle className="font-extrabold text-3xl mb-2 hover:cursor-pointer hover:underline">{title}</CardTitle>
                 <CardDescription className="text-xl">{description}</CardDescription>
             </CardContent>
             <Image
