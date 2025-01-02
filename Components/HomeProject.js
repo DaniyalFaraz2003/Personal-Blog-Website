@@ -38,11 +38,13 @@ function ProjectCard({img, title, description}) {
 export default function HomeProject() {
     const projects = [
         {
+            id: 1,
             img: project1,
             title: "Inventory Management System",
             description: "An inventory management system designed to streamline items handling processes and automate inventory management tasks"
         },
         {
+            id: 2,
             img: project2,
             title: "Gym Management System",
             description: "A centralized system to handle members and trainers, along with their workout and diet plans, memberships and gym branches over a wide network"

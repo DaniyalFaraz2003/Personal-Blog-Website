@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Components/ui/card";
 import project1 from '../../assets/Project1.jpeg'
 import project2 from '../../assets/Project2.png'
+import Link from 'next/link'
 
 function HeroSection() {
     return (
@@ -14,11 +15,13 @@ function HeroSection() {
     )
 }
 
-function ProjectCard({ title, description, image }) {
+function ProjectCard({ id, title, description, image }) {
     return (
         <Card className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
             <CardContent className="basis-[3/5]">
-                <CardTitle className="font-extrabold text-3xl mb-2 hover:cursor-pointer hover:underline">{title}</CardTitle>
+                <Link href={`/portfolio/${id}`} key={id}>
+                    <CardTitle className="font-extrabold text-3xl mb-2 hover:cursor-pointer hover:underline">{title}</CardTitle>
+                </Link>
                 <CardDescription className="text-xl">{description}</CardDescription>
             </CardContent>
             <Image
@@ -34,11 +37,13 @@ function ProjectCard({ title, description, image }) {
 function Projects() {
     const projectData = [
         {
+            id: 1,
             title: 'Inventory Management System',
             description: 'An inventory management system that helps businesses keep track of their inventory.',
             image: project1
         },
         {
+            id: 2,
             title: 'Gym Management System',
             description: 'A gym management system that helps gym owners keep track of their members and their subscriptions.',
             image: project2

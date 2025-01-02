@@ -160,7 +160,7 @@ export default function HomeSkills() {
             name: 'TypeScript'
         }
     ]
-    console.log(skills);
+
     return (
         <>
             <section className='z-0 flex flex-col mb-10 mt-10'>
