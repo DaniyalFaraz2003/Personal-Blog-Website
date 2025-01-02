@@ -59,7 +59,7 @@ const CanvasLoader = () => {
 
 
 const Ball = (props) => {
-    const [decal] = useTexture([props.imgUrl]);
+    const [decal] = useTexture([props.imgUrl.src]);
 
     return (
         <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
@@ -174,8 +174,7 @@ export default function HomeSkills() {
                     {skills.map((skill, index) => {
                         return (
                             <div className='w-28 h-28' key={skill.name}>
-                                {/*<Image src={skill.icon} alt={skill.name}/>*/}
-                                <BallCanvas icon={'../assets/css.png'} />
+                                <BallCanvas icon={skill.icon} />
                             </div>
                         );
                     })}
