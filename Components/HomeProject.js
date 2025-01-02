@@ -11,7 +11,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-import project1 from "../assets/Project1.jpeg"
+import project1 from "../assets/Project1.png"
 import project2 from "../assets/Project2.png"
 import ghIcon from "../assets/gh-icon.png"
 

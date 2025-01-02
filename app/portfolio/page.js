@@ -2,7 +2,7 @@ import React from 'react'
 import {ContentLayout} from "@/Components/admin-panel/content-layout";
 import Image from 'next/image'
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Components/ui/card";
-import project1 from '../../assets/Project1.jpeg'
+import project1 from '../../assets/Project1.png'
 import project2 from '../../assets/Project2.png'
 import Link from 'next/link'
 
