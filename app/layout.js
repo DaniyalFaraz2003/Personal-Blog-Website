@@ -22,9 +22,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+      <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <ThemeProvider
           attribute="class"
@@ -32,9 +32,10 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
       >
-      <AdminPanelLayout>{children}</AdminPanelLayout>
+          <AdminPanelLayout>{children}</AdminPanelLayout>
       </ThemeProvider>
       </body>
-    </html>
+      </html>
+
   );
 }

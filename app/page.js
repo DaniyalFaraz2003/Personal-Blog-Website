@@ -5,6 +5,7 @@ import StarsCanvas from "@/Components/Stars";
 import Overview from "@/Components/HomeOverview"
 import HomeBlog from "@/Components/HomeBlog"
 import HomeProject from "@/Components/HomeProject"
+import HomeSkills from "@/Components/HomeSkills"
 
 export default function Page() {
     return (
@@ -16,6 +17,7 @@ export default function Page() {
             <Overview />
             <HomeBlog />
             <HomeProject />
+            <HomeSkills />
         </ContentLayout>
     );
 }

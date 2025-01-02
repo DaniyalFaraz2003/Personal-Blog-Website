@@ -31,7 +31,6 @@ function ProjectCard({ title, description, image }) {
 }
 
 
-
 function Projects() {
     const projectData = [
         {
