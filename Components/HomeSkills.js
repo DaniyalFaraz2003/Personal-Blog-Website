@@ -14,19 +14,19 @@ import { Canvas } from "@react-three/fiber";
 import { Html, useProgress } from "@react-three/drei";
 
 
-import css from '../assets/css.png'
-import docker from '../assets/docker.png'
-import figma from '../assets/figma.png'
-import git from '../assets/git.png'
-import html from '../assets/html.png'
-import js from '../assets/javascript.png'
-import mongodb from '../assets/mongodb.png'
-import nodejs from '../assets/nodejs.png'
-import nextjs from '../assets/NEXT.png'
-import python from '../assets/python.png'
-import reactjs from '../assets/reactjs.png'
-import tailwind from '../assets/tailwind.png'
-import typescript from '../assets/typescript.png'
+import css from '../public/css.png'
+import docker from '../public/docker.png'
+import figma from '../public/figma.png'
+import git from '../public/git.png'
+import html from '../public/html.png'
+import js from '../public/javascript.png'
+import mongodb from '../public/mongodb.png'
+import nodejs from '../public/nodejs.png'
+import nextjs from '../public/NEXT.png'
+import python from '../public/python.png'
+import reactjs from '../public/reactjs.png'
+import tailwind from '../public/tailwind.png'
+import typescript from '../public/typescript.png'
 
 
 const CanvasLoader = () => {

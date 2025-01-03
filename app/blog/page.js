@@ -4,7 +4,7 @@ import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} f
 import {Badge} from "@/Components/ui/badge";
 import Image from "next/image";
 import * as React from "react";
-import user from "@/assets/user.png";
+import user from "@/public/user.png";
 import Link from "next/link"
 
 function HeroSection() {

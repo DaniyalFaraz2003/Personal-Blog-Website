@@ -11,9 +11,9 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-import project1 from "../assets/Project1.png"
-import project2 from "../assets/Project2.png"
-import ghIcon from "../assets/gh-icon.png"
+import project1 from "../public/Project1.png"
+import project2 from "../public/Project2.png"
+import ghIcon from "../public/gh-icon.png"
 
 function ProjectCard({img, title, description}) {
     return (

@@ -5,10 +5,10 @@ import React, {useEffect} from 'react'
 import Image from "next/image"
 import { Tilt } from 'react-tilt'
 import { motion } from 'framer-motion'
-import webdevLogo from "../assets/web.png"
-import botLogo from "../assets/bot.png"
-import softwareLogo from "../assets/SD.png"
-import testerLogo from "../assets/tester.png"
+import webdevLogo from "../public/web.png"
+import botLogo from "../public/bot.png"
+import softwareLogo from "../public/SD.png"
+import testerLogo from "../public/tester.png"
 
 const textVariant = (delay) => {
     return {
