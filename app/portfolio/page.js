@@ -6,6 +6,7 @@ import project1 from '@/public/Project1.png'
 import project2 from '@/public/Project2.png'
 import Link from 'next/link'
 
+
 function HeroSection() {
     return (
         <section className={"flex flex-col gap-7"}>

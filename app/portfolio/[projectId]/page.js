@@ -4,7 +4,6 @@ import {Button} from "@/components/ui/button"
 import Image from 'next/image'
 
 
-
 function HeaderSection() {
     return (
         <section className={`flex justify-between h-fit`}>
@@ -23,11 +22,13 @@ function HeaderSection() {
 
 export default function Page({params}) {
     const {projectId} = params;
-
     return (
         <ContentLayout pathname={`portfolio/${projectId}`}>
             <HeaderSection/>
-            <Image src={'/Project1.png'} alt={'Project Image'} width={"400"} height={"300"} className={`w-full`} />
+            <div className={`my-10 w-full justify-center flex`}>
+                <Image src={"/Project1.png"} alt={'Project Image'} width={"800"} height={"400"} />
+
+            </div>
         </ContentLayout>
     )
 }
