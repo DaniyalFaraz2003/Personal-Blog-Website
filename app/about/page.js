@@ -6,20 +6,25 @@ import { CardContent, CardTitle, CardDescription } from '@/Components/ui/card';
 
 function AboutMe() {
     return (
-        <div className='w-full mt-5 p-6 sm:p-10 flex flex-col text-center'>
+        <div className='w-full mt-5 p-4 sm:p-7 flex flex-col text-center'>
             <div className="flex items-center gap-2 justify-center">
                 <div className='h-[1px] flex-grow bg-slate-500'></div>
                 <h2 className="text-3xl text-center font-bold">About Me</h2>
                 <div className='h-[1px] flex-grow bg-slate-500'></div>
             </div>
-            <p className="text-gray-500 dark:text-gray-400">A little story about my self.</p>
+            <p className="text-gray-500 dark:text-gray-400">Who I am.</p>
+            <div>
+                <p className="text-lg mt-5">
+                    I am a student, programmer and musician. I love to code and play music. I have been coding for the past 5 years and have worked on a variety of projects. I am currently studying computer science at a leading university in the United States. I am passionate about technology and its potential to change the world
+                </p>
+            </div>
         </div>
     )
 }
 
 function Timeline() {
     return (
-        (<div className="p-6 sm:p-10">
+        (<div className="p-4 sm:p-7">
             <div className="text-center mb-8">
                 <div className="flex items-center gap-2 justify-center">
                     <div className='h-[1px] w-full bg-slate-500'></div>
@@ -38,7 +43,7 @@ function Timeline() {
                             <CardDescription>{data.date}</CardDescription>
                             <CardContent className="mt-4">
                                 <CardTitle className="text-xl mb-3">{data.title}</CardTitle>
-                                <CardDescription className="text-[17px] mb-5">
+                                <CardDescription className="text-[17px]">
                                     {data.description}
                                 </CardDescription>
                             </CardContent>
