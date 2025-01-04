@@ -1,9 +1,11 @@
 import React from 'react'
+import { ContentLayout } from "@/components/admin-panel/content-layout";
+
 
 export default function Page() {
     return (
-        <div>
-            <h1>Contact Page</h1>
-        </div>
+        <ContentLayout pathname={"Contact"}>
+
+        </ContentLayout>
     )
 }
