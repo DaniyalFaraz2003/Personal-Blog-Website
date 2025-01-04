@@ -3,7 +3,7 @@
 import React from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { Github, Facebook, Instagram, Linkedin } from 'lucide-react';
-import { CardDescription, CardTitle } from '@/Components/ui/card';
+import { CardDescription, CardTitle, Card } from '@/Components/ui/card';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -20,14 +20,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '@/Components/ui/textarea';
 
 const formSchema = z.object({
-    name: z.string({invalid_type_error: "Name must be string"}).min(2, "Name must be at least 2 characters").max(50).nonempty("Name is required"),
+    name: z.string({ invalid_type_error: "Name must be string" }).min(2, "Name must be at least 2 characters").max(50).nonempty("Name is required"),
     email: z.string().email({ message: "Invalid email address" }).nonempty("Email is required"),
     message: z.string().min(10, "Message must be at least 10 characters").max(500, "Message must be at most 500 characters").nonempty("Message is required"),
 })
 
 export function ContactForm() {
     // 1. Define your form.
-    const form = useForm ({
+    const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -96,7 +96,7 @@ export function ContactForm() {
 export default function Page() {
     return (
         <ContentLayout pathname={"Contact"}>
-            <section className='flex'>
+            <section className='flex gap-5'>
                 <div className='basis-1/2 flex flex-col gap-7 justify-center'>
                     <div className='flex gap-4'>
                         <Github size={24} />
@@ -113,7 +113,8 @@ export default function Page() {
                         <CardDescription className="text-[16px]"><span className='font-bold text-sky-600'>Phone: </span>+92 318 1187600</CardDescription>
                     </div>
                 </div>
-                <div className='basis-1/2'>
+                <div className='w-[10px]'></div>
+                <div className='basis-1/2 flex flex-col justify-center'>
                     <ContactForm />
                 </div>
             </section>
