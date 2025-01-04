@@ -2,6 +2,7 @@ import React from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import Image from 'next/image'
 import MeImage from "@/public/Me.jpg";
+import { Timeline } from '@/Components/timeline/timeline';
 
 function Separator() {
     return (
@@ -28,6 +29,7 @@ export default function Page() {
         <ContentLayout pathname={"About"}>
             <HeroSection />
             <Separator />
+            <Timeline />
         </ContentLayout>
     )
 }
