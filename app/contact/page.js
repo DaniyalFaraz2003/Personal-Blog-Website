@@ -1,7 +1,96 @@
+"use client"
+
 import React from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { Github, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { CardDescription, CardTitle } from '@/Components/ui/card';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { Textarea } from '@/Components/ui/textarea';
+
+const formSchema = z.object({
+    name: z.string({invalid_type_error: "Name must be string"}).min(2, "Name must be at least 2 characters").max(50).nonempty("Name is required"),
+    email: z.string().email({ message: "Invalid email address" }).nonempty("Email is required"),
+    message: z.string().min(10, "Message must be at least 10 characters").max(500, "Message must be at most 500 characters").nonempty("Message is required"),
+})
+
+export function ContactForm() {
+    // 1. Define your form.
+    const form = useForm ({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+            email: "",
+            message: "",
+        },
+    })
+    // 2. Define a submit handler.
+    function onSubmit(values) {
+        // Do something with the form values.
+        // ✅ This will be type-safe and validated.
+        console.log(values)
+        form.reset()
+    }
+
+    return (
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter your name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Enter your email" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                                <Textarea placeholder="Type your message here" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <Button type="submit">Submit</Button>
+            </form>
+        </Form>
+    )
+}
+
 
 
 export default function Page() {
@@ -25,7 +114,7 @@ export default function Page() {
                     </div>
                 </div>
                 <div className='basis-1/2'>
-
+                    <ContactForm />
                 </div>
             </section>
         </ContentLayout>
