@@ -1,9 +1,20 @@
 import React from 'react'
-import {ContentLayout} from "@/Components/admin-panel/content-layout";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
+import { Badge } from "@/Components/ui/badge";
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/Components/ui/card';
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 const titleTypography = "scroll-m-20 text-2xl font-semibold tracking-tight"
 const descriptionTypography = "leading-7 [&:not(:first-child)]:mt-6 text-lg"
@@ -20,7 +31,31 @@ function HeadingSeparator() {
     )
 }
 
+function CopyRightAlert() {
+    return (
+        <AlertDialog>
+            <AlertDialogTrigger asChild>
+                <Button variant="ghost">© Copyright info</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>Copyright Info</AlertDialogTitle>
+                    <AlertDialogDescription>
+                        This action cannot be undone. This will permanently delete your
+                        account and remove your data from our servers.
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                    <AlertDialogAction>Got it</AlertDialogAction>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
+    )
+}
+
 function BodySection () {
+    const badges = ["Inventory", "MERN", "Website", "Full Stack", "Design", "Automation"]
+
     const features = [
     {
         title: "Real-Time Stock Tracking",
@@ -36,7 +71,7 @@ function BodySection () {
     },
     ]
     return (
-        <section className={`flex w-full gap-9`}>
+        <section className={`flex w-full gap-7`}>
             <Card className={`basis-[3/5] w-full pt-7`}>
                 <CardContent>
                     <CardTitle className={`${titleTypography}`}>Problem Statement</CardTitle><HeadingSeparator />
@@ -77,10 +112,12 @@ function BodySection () {
                     </Button>
                 </CardHeader>
                 <CardContent>
-
+                        {badges.map((badge, index) => (
+                            <Badge key={index} variant={'secondary'} className={`m-1 rounded-sm text-sm`}>{badge}</Badge>
+                        ))}
                 </CardContent>
                 <CardFooter>
-
+                    <CopyRightAlert />
                 </CardFooter>
             </Card>
         </section>

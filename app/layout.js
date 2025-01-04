@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
       >
-          <AdminPanelLayout>{children}</AdminPanelLayout>
+        <AdminPanelLayout>{children}</AdminPanelLayout>
       </ThemeProvider>
       </body>
       </html>
