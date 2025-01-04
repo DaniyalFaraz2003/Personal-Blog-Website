@@ -4,16 +4,6 @@ import Image from 'next/image'
 import MeImage from "@/public/Me.jpg";
 import { Timeline } from '@/Components/timeline/timeline';
 
-function Separator() {
-    return (
-        <section className='mt-7 flex items-center justify-center gap-5 w-full'>
-            <div className='h-[1px] w-full bg-slate-500'></div>
-            <p className='text-lg'>TIMELINE</p>
-            <div className='h-[1px] w-full bg-slate-500'></div>
-        </section>
-    )
-}
-
 function HeroSection() {
     return (
         <section className={`flex flex-col items-center justify-center gap-5`}>
@@ -28,7 +18,6 @@ export default function Page() {
     return (
         <ContentLayout pathname={"About"}>
             <HeroSection />
-            <Separator />
             <Timeline />
         </ContentLayout>
     )
