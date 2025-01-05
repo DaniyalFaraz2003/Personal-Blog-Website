@@ -1,6 +1,7 @@
 import React from "react"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -15,7 +16,7 @@ import project1 from "../public/Project1.png"
 import project2 from "../public/Project2.png"
 import ghIcon from "../public/gh-icon.png"
 
-function ProjectCard({img, title, description}) {
+function ProjectCard({ img, title, description }) {
     return (
         <>
             <Card className="w-[350px]">
@@ -27,8 +28,10 @@ function ProjectCard({img, title, description}) {
                     <CardDescription className={"text-md"}>{description}</CardDescription>
                 </CardContent>
                 <CardFooter className="flex justify-between">
+                    <Link href="/portfolio">
                         <Button variant="outline">Details</Button>
-                        <Button className={"rounded-full w-fit p-0 h-fit bg-white"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
+                    </Link>
+                    <Button className={"rounded-full w-fit p-0 h-fit bg-white"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
                 </CardFooter>
             </Card>
         </>
