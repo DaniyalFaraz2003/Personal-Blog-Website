@@ -1,4 +1,4 @@
-const blogs = [
+export const blogs = [
     {
         id: "1",
         title: "Introduction to JavaScript",
@@ -42,4 +42,3 @@ const blogs = [
     }
 ];
 
-module.exports = blogs;

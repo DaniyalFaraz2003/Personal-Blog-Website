@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
     {
         id: "1",
         title: "Personal Blog Website",
@@ -78,5 +78,3 @@ const projects = [
         ]
     }
 ];
-
-module.exports = projects;
