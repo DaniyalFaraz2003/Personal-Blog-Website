@@ -78,7 +78,7 @@
         code {
             background: none;
             color: inherit;
-            font-size: 0.8rem;
+            font-size: 1.0rem;
             padding: 0;
         }
     }
@@ -100,5 +100,9 @@
         border: none;
         border-top: 1px solid var(--gray-2);
         margin: 2rem 0;
+    }
+
+    p {
+        font-size: 20px;
     }
 }
