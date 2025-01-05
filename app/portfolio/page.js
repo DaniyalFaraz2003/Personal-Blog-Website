@@ -1,11 +1,24 @@
-import React from 'react'
-import {ContentLayout} from "@/components/admin-panel/content-layout";
+"use client";
+
+import React, { useState, useEffect } from 'react'
+import { Skeleton } from '@/components/ui/skeleton';
+import { ContentLayout } from "@/components/admin-panel/content-layout";
 import Image from 'next/image'
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import project1 from '@/public/Project1.png'
-import project2 from '@/public/Project2.png'
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import axios from "axios"
 import Link from 'next/link'
 
+function SkeletonCard() {
+    return (
+        <div className="flex flex-row items-center mb-5 w-full p-4 rounded-lg">
+            <CardContent className="w-full items-start flex flex-col gap-2">
+                <Skeleton className="h-8 w-[80%] mb-2" />
+                <Skeleton className="h-6 w-1/2" />
+            </CardContent>
+            <Skeleton className="w-64 h-32 flex-shrink-0 ml-auto" />
+        </div>
+    );
+}
 
 function HeroSection() {
     return (
@@ -28,7 +41,9 @@ function ProjectCard({ id, title, description, image }) {
             <Image
                 src={image}
                 alt="project"
-                className="w-64 h-44 object-contain flex-shrink-0 ml-auto"
+                width={"256"}
+                height={"176"}
+                className="object-contain flex-shrink-0 ml-auto"
             />
         </Card>
     );
@@ -36,27 +51,39 @@ function ProjectCard({ id, title, description, image }) {
 
 
 function Projects() {
-    const projectData = [
-        {
-            id: 1,
-            title: 'Inventory Management System',
-            description: 'An inventory management system that helps businesses keep track of their inventory.',
-            image: project1
-        },
-        {
-            id: 2,
-            title: 'Gym Management System',
-            description: 'A gym management system that helps gym owners keep track of their members and their subscriptions.',
-            image: project2
-        },
-    ]
+    const [projectData, setProjectData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getProjectData = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get('/api/projects');
+                setProjectData(response.data.projects);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        getProjectData();
+    }, [])
+
 
     return (
         <section>
             <div className={'flex flex-col gap-5 my-10'}>
-                {projectData.map((project, index) => {
-                    return <ProjectCard key={index} {...project} />
-                })}
+                {
+                    loading ? Array.from({ length: 2 }).map((_, index) => <SkeletonCard key={index} />) : null
+                }
+                {
+                    projectData.map((project, index) => {
+                        return <ProjectCard
+                            key={index}
+                            {...project} />
+                    })
+                }
             </div>
         </section>
     )
