@@ -1,4 +1,4 @@
-const projectData = {
+const projectSchema = {
     id: "",
     title: "",
     description: "",

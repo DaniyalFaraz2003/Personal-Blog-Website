@@ -1,4 +1,4 @@
-const blogPost = {
+const blogSchema = {
     id: "",
     title: "",
     username: "",
