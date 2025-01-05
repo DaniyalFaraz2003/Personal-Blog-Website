@@ -4,7 +4,7 @@ export const projects = [
         title: "Personal Blog Website",
         description: "A personal blog website to share my thoughts and experiences.",
         image: "/Project1.png",
-        githubUrl: "https://github.com/username/personal-blog",
+        githubUrl: "https://github.com/vercel/next.js/discussions/18474",
         demoUrl: "https://personal-blog-demo.com",
         copyRightInfo: "© 2023 by Your Name",
         problem: "Wanted a platform to share my thoughts and experiences.",

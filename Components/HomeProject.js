@@ -14,11 +14,9 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-import project1 from "../public/Project1.png"
-import project2 from "../public/Project2.png"
 import ghIcon from "../public/gh-icon.png"
 
-function ProjectCard({ image, title, description }) {
+function ProjectCard({ image, title, description, githubUrl }) {
     return (
         <>
             <Card className="w-[350px]">
@@ -33,7 +31,9 @@ function ProjectCard({ image, title, description }) {
                     <Link href="/portfolio">
                         <Button variant="outline">Details</Button>
                     </Link>
-                    <Button className={"rounded-full w-fit p-0 h-fit bg-white"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
+                    <Link href={githubUrl}>
+                        <Button className={"rounded-full w-fit p-0 h-fit bg-white"}><Image className={""} src={ghIcon} alt={"github"} /></Button>
+                    </Link>
                 </CardFooter>
             </Card>
         </>
