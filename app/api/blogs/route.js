@@ -7,6 +7,7 @@ export async function GET() {
         blogs.forEach((blog, index) => {
             blogs[index].date = new Date(blog.date).toDateString();
         })
+        await sleep(5);
         return NextResponse.json({ blogs });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to fetch blogs' }, { status: 500 });
@@ -16,4 +17,8 @@ export async function GET() {
 async function getAllBlogs() {
     // Replace with your actual data fetching logic, e.g., database query
     return blogs
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

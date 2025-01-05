@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link'
 import axios from "axios";
-
+import { Skeleton } from "@/components/ui/skeleton"
 import {
     Card,
     CardContent,
@@ -10,6 +10,19 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { useEffect, useState } from "react";
+
+
+function SkeletonCard() {
+    return (
+        <div className="flex flex-col space-y-3 mx-5">
+            <Skeleton className="h-[40px] w-[250px] rounded-xl" />
+            <div className="space-y-2">
+                <Skeleton className="h-4 w-[250px]" />
+                <Skeleton className="h-[150px] w-[250px]" />
+            </div>
+        </div>
+    )
+}
 
 function BlogCard({ date, title, description, badges, first, last }) {
     const [hovered, setHovered] = useState(false);
@@ -37,16 +50,20 @@ function BlogCard({ date, title, description, badges, first, last }) {
 
 export default function HomeBlogs() {
     const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const getBlogs = async () => {
             try {
+                setLoading(true); // Set loading to true before fetching
                 const res = await axios.get("/api/blogs");
-                setBlogs(res.data.blogs.splice(0, 3));
+                setBlogs(res.data.blogs.slice(0, 3)); // Use slice instead of splice
             } catch (error) {
                 console.error(error);
+            } finally {
+                setLoading(false); // Set loading to false after fetching, regardless of success
             }
         }
-        
+
         getBlogs();
     }, [])
 
@@ -59,10 +76,22 @@ export default function HomeBlogs() {
                     <p className={"text-muted-foreground md:text-[20px] sm:text-[13px] xs:text-[10px] text-[10px]"}>To gain insights on problem solving and information on latest tech trends.</p>
 
                 </div>
-                <div className={"flex flex-row space-x-0 my-10"}>
-                    {blogs.map((blog, index) => {
-                        return <BlogCard key={index} {...blog} first={index === 0 ? true : false} last={index === blogs.length - 1 ? true : false} />
-                    })}
+                <div className={`flex flex-row ${!loading && "space-x-0"} my-10 items-center justify-center`}>
+                    {
+                        loading && [0, 1, 2].map((index) => {
+                            return <SkeletonCard key={index} />
+                        })
+                    }
+                    {
+                        !loading && blogs.map((blog, index) => {
+                            return <BlogCard 
+                                key={index} 
+                                {...blog} 
+                                first={index === 0 ? true : false} 
+                                last={index === blogs.length - 1 ? true : false} />
+                        })
+                    }
+
                 </div>
             </section>
         </>
