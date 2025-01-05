@@ -1,6 +1,6 @@
 "use client";
 
-import {ContentLayout} from "@/Components/admin-panel/content-layout";
+import {ContentLayout} from "@/components/admin-panel/content-layout";
 import Typography from '@tiptap/extension-typography'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'

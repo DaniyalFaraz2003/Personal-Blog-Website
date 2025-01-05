@@ -3,7 +3,7 @@
 import React from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { Github, Facebook, Instagram, Linkedin } from 'lucide-react';
-import { CardDescription, CardTitle, Card } from '@/Components/ui/card';
+import { CardDescription, CardTitle, Card } from '@/components/ui/card';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -17,7 +17,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Textarea } from '@/Components/ui/textarea';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
     name: z.string({ invalid_type_error: "Name must be string" }).min(2, "Name must be at least 2 characters").max(50).nonempty("Name is required"),

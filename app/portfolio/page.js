@@ -1,7 +1,7 @@
 import React from 'react'
-import {ContentLayout} from "@/Components/admin-panel/content-layout";
+import {ContentLayout} from "@/components/admin-panel/content-layout";
 import Image from 'next/image'
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Components/ui/card";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import project1 from '@/public/Project1.png'
 import project2 from '@/public/Project2.png'
 import Link from 'next/link'

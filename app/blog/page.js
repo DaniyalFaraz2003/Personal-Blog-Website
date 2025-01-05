@@ -1,7 +1,7 @@
 //page.tsx
 import { ContentLayout } from "@/components/admin-panel/content-layout";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/Components/ui/card";
-import {Badge} from "@/Components/ui/badge";
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Badge} from "@/components/ui/badge";
 import Image from "next/image";
 import * as React from "react";
 import user from "@/public/user.png";

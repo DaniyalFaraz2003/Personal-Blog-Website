@@ -9,7 +9,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/Components/ui/card"
+} from "@/components/ui/card"
 import { useState } from "react";
 
 function BlogCard({ date, title, description, badges, first, last }) {

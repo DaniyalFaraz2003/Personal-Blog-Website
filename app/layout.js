@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import AdminPanelLayout from "@/Components/admin-panel/admin-panel-layout";
-import {ThemeProvider} from "@/Components/ThemeProvider";
+import AdminPanelLayout from "@/components/admin-panel/admin-panel-layout";
+import {ThemeProvider} from "@/components/ThemeProvider";
 import "./globals.css";
 
 

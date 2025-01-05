@@ -1,10 +1,10 @@
 import React from 'react'
-import { ContentLayout } from "@/Components/admin-panel/content-layout";
-import { Badge } from "@/Components/ui/badge";
+import { ContentLayout } from "@/components/admin-panel/content-layout";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/Components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import {
     AlertDialog,
     AlertDialogAction,
