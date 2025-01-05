@@ -18,12 +18,12 @@ import project1 from "../public/Project1.png"
 import project2 from "../public/Project2.png"
 import ghIcon from "../public/gh-icon.png"
 
-function ProjectCard({ img, title, description }) {
+function ProjectCard({ image, title, description }) {
     return (
         <>
             <Card className="w-[350px]">
                 <CardHeader>
-                    <Image src={img} alt="Project" className={"w-full h-48"} />
+                    <Image src={image} alt="Project" width={"350"} height={"192"} className={"w-full h-48"} />
                 </CardHeader>
                 <CardContent className={"flex flex-col gap-3"}>
                     <CardTitle className={"font-bold text-lg"}>{title}</CardTitle>
