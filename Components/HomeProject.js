@@ -1,5 +1,7 @@
-import React from "react"
+"use client";
 
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -39,21 +41,21 @@ function ProjectCard({ img, title, description }) {
 }
 
 export default function HomeProject() {
-    const projects = [
-        {
-            id: 1,
-            img: project1,
-            title: "Inventory Management System",
-            description: "An inventory management system designed to streamline items handling processes and automate inventory management tasks"
-        },
-        {
-            id: 2,
-            img: project2,
-            title: "Gym Management System",
-            description: "A centralized system to handle members and trainers, along with their workout and diet plans, memberships and gym branches over a wide network"
+
+    const [projects, setProjects] = useState([])
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const res = await axios.get("/api/projects")
+                setProjects(res.data.projects.splice(0, 2))
+            } catch (error) {
+                console.log(error)
+            }
         }
 
-    ]
+        fetchProjects();
+    }, [])
+
     return (
         <>
             <section className='z-0 flex flex-col mb-10 mt-10'>
