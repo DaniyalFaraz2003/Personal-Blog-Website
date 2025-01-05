@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react"
-
+import Link from 'next/link'
 
 import {
     Card,
@@ -10,15 +10,17 @@ import {
     CardHeader,
     CardTitle,
 } from "@/Components/ui/card"
-import {useState} from "react";
+import { useState } from "react";
 
-function BlogCard({date, title, description, badges, first, last}) {
+function BlogCard({ date, title, description, badges, first, last }) {
     const [hovered, setHovered] = useState(false);
     return (
         <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={"flex gap-5"}>
             <Card className={`bg-transparent ${first && "border-l-0"} ${last && "border-r-0"} rounded-none border-y-0 dark:hover:bg-[#2e2e33] hover:bg-gray-200`}>
                 <CardHeader className={"flex flex-row items-center"}>
-                    <CardTitle className={`text-xl font-bold ${hovered ? "underline" : ""}`}>{title}</CardTitle>
+                    <Link href="/blog">
+                        <CardTitle className={`text-xl font-bold hover:cursor-pointer ${hovered ? "underline" : ""}`}>{title}</CardTitle>
+                    </Link>
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
                     <CardDescription>{date}</CardDescription>
@@ -58,7 +60,7 @@ const blogData = [
     }
 ]
 
-export default function HomeBlogs () {
+export default function HomeBlogs() {
 
     return (
         <>
@@ -71,7 +73,7 @@ export default function HomeBlogs () {
                 </div>
                 <div className={"flex flex-row space-x-0 my-10"}>
                     {blogData.map((blog, index) => {
-                        return <BlogCard key={index} {...blog} first={index === 0 ? true : false} last={index === blogData.length - 1 ? true : false}/>
+                        return <BlogCard key={index} {...blog} first={index === 0 ? true : false} last={index === blogData.length - 1 ? true : false} />
                     })}
                 </div>
             </section>
