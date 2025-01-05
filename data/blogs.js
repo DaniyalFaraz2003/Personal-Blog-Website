@@ -4,7 +4,7 @@ export const blogs = [
         title: "Introduction to JavaScript",
         username: "Daniyal Faraz",
         date: "2023-10-01T10:00:00Z",
-        description: "A beginner's guide to JavaScript.",
+        description: "A beginner's guide to JavaScript for everyone to get a starter in the language.",
         badges: ["JavaScript", "Beginner", "Guide"],
         image: "/user.png",
         latest: true,
@@ -46,7 +46,7 @@ setTimeout(() => {
         username: "Daniyal Faraz",
         date: "2023-08-20T09:00:00Z",
         description: "Advanced concepts in React for building complex applications.",
-        badges: ["React", "Advanced", "Web Development"],
+        badges: ["React", "Advanced", "Web Dev"],
         image: "/user.png",
         latest: false,
         content: `

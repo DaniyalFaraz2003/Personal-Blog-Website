@@ -1,7 +1,6 @@
 "use client";
-
-import * as React from "react"
 import Link from 'next/link'
+import axios from "axios";
 
 import {
     Card,
@@ -10,12 +9,12 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function BlogCard({ date, title, description, badges, first, last }) {
     const [hovered, setHovered] = useState(false);
     return (
-        <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={"flex gap-5"}>
+        <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={"flex basis-1/3 gap-5"}>
             <Card className={`bg-transparent ${first && "border-l-0"} ${last && "border-r-0"} rounded-none border-y-0 dark:hover:bg-[#2e2e33] hover:bg-gray-200`}>
                 <CardHeader className={"flex flex-row items-center"}>
                     <Link href="/blog">
@@ -61,6 +60,19 @@ const blogData = [
 ]
 
 export default function HomeBlogs() {
+    const [blogs, setBlogs] = useState([]);
+    useEffect(() => {
+        const getBlogs = async () => {
+            try {
+                const res = await axios.get("/api/blogs");
+                setBlogs(res.data.blogs.splice(0, 3));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        
+        getBlogs();
+    }, [])
 
     return (
         <>
@@ -72,8 +84,8 @@ export default function HomeBlogs() {
 
                 </div>
                 <div className={"flex flex-row space-x-0 my-10"}>
-                    {blogData.map((blog, index) => {
-                        return <BlogCard key={index} {...blog} first={index === 0 ? true : false} last={index === blogData.length - 1 ? true : false} />
+                    {blogs.map((blog, index) => {
+                        return <BlogCard key={index} {...blog} first={index === 0 ? true : false} last={index === blogs.length - 1 ? true : false} />
                     })}
                 </div>
             </section>
