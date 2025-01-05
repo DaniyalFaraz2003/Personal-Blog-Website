@@ -25,6 +25,7 @@
     "@react-three/fiber": "^8.17.10",
     "@tiptap/extension-code-block-lowlight": "^2.10.3",
     "@tiptap/extension-highlight": "^2.10.3",
+    "@tiptap/extension-image": "^2.11.0",
     "@tiptap/extension-typography": "^2.10.3",
     "@tiptap/pm": "^2.10.3",
     "@tiptap/react": "^2.10.3",

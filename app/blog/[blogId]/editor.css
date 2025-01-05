@@ -105,4 +105,12 @@
     p {
         font-size: 20px;
     }
+
+    img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+        align-self: center;
+        justify-self: center;
+    }
 }

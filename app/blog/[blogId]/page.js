@@ -8,6 +8,7 @@ import remarkHtml from 'remark-html'
 import remarkParse from 'remark-parse'
 import {unified} from 'unified'
 import Highlight from '@tiptap/extension-highlight';
+import Image from '@tiptap/extension-image';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { all, createLowlight } from 'lowlight'
 import 'highlight.js/styles/dark.css'; // Import your preferred highlight.js theme
@@ -25,8 +26,8 @@ lowlight.register('javascript', javascript);
 lowlight.register('python', python);
 lowlight.register('cpp', cpp)
 
-
-const markdownContent = `# **Introduction to C++ Programming**
+const markdownContent = `![javascript.png](/Project1.png)
+# **Introduction to C++ Programming**
 C++ is a powerful, high-performance programming language commonly used for system software, game development, and applications where efficiency is critical. This article introduces the basics of C++ and why it's a valuable skill for developers.
 ## Why Learn C++?
 C++ offers several advantages, making it popular in both industry and academia:
@@ -65,6 +66,9 @@ export default function Page({ params }) {
             }),
             Highlight,
             Typography,
+            Image.configure({
+                inline: true,
+            }),
         ],
 
         content: htmlContent, // Initial empty content
