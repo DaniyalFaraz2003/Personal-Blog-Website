@@ -1,4 +1,6 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect, useState } from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
@@ -15,6 +17,8 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import Link from 'next/link';
+import axios from "axios"
 
 const titleTypography = "scroll-m-20 text-2xl font-semibold tracking-tight"
 const descriptionTypography = "leading-7 [&:not(:first-child)]:mt-6 text-lg"
@@ -31,7 +35,7 @@ function HeadingSeparator() {
     )
 }
 
-function CopyRightAlert() {
+function CopyRightAlert({ copyRightInfo }) {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
@@ -41,8 +45,7 @@ function CopyRightAlert() {
                 <AlertDialogHeader>
                     <AlertDialogTitle>Copyright Info</AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your
-                        account and remove your data from our servers.
+                        {copyRightInfo}
                     </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -53,39 +56,23 @@ function CopyRightAlert() {
     )
 }
 
-function BodySection () {
-    const badges = ["Inventory", "MERN", "Website", "Full Stack", "Design", "Automation"]
-
-    const features = [
-    {
-        title: "Real-Time Stock Tracking",
-        description: "View up-to-date inventory levels across locations.",
-    },
-    {
-        title: "Stock Alerts",
-        description: "Notifications for low stock, reorder levels, or excess stock.",
-    },
-    {
-        title: "Barcode Integration",
-        description: "Efficient scanning for adding or retrieving stock information.",
-    },
-    ]
+function BodySection({ problem, solution, features, techStack, copyRightInfo, demoUrl }) {
     return (
         <section className={`flex w-full gap-7`}>
             <Card className={`basis-[3/5] w-full pt-7`}>
                 <CardContent>
                     <CardTitle className={`${titleTypography}`}>Problem Statement</CardTitle><HeadingSeparator />
                     <CardDescription className={`${descriptionTypography}`}>
-                        Managing inventory manually or with outdated systems can lead to inefficiencies such as overstocking, stockouts, data errors, and poor tracking of goods. These challenges result in lost revenue, increased operational costs, and reduced customer satisfaction. Businesses also struggle to gain real-time visibility into inventory levels, making it difficult to make informed decisions and maintain optimal stock levels.
+                        {problem}
                     </CardDescription>
                     <Separator />
                     <CardTitle className={`${titleTypography}`}>Solution</CardTitle><HeadingSeparator />
                     <CardDescription className={`${descriptionTypography}`}>
-                        An automated and software driven inventory management system streamlines the tracking, managing, and reporting of inventory.
+                        {solution}
                     </CardDescription>
                     <Separator />
                     <CardTitle className={`${titleTypography}`}>Key Features</CardTitle>
-                    <div className={`w-full my-6`}/>
+                    <div className={`w-full my-6`} />
                     {features.map((feature, index) => (
                         <div
                             key={index}
@@ -106,47 +93,108 @@ function BodySection () {
             </Card>
             <Card className={`basis-2/5 w-full`}>
                 <CardHeader>
-                    <Button variant={"outline"} className={`w-fit`}>
-                        Open Demo
-                        <ArrowUpRight />
-                    </Button>
+                    <Link href={demoUrl}>
+                        <Button variant={"outline"} className={`w-fit`}>
+                            Open Demo
+                            <ArrowUpRight />
+                        </Button>
+                    </Link>
                 </CardHeader>
                 <CardContent>
-                        {badges.map((badge, index) => (
-                            <Badge key={index} variant={'secondary'} className={`m-1 rounded-sm text-sm`}>{badge}</Badge>
-                        ))}
+                    {techStack.map((tech, index) => (
+                        <Badge key={index} variant={'secondary'} className={`m-1 rounded-sm text-sm`}>{tech}</Badge>
+                    ))}
                 </CardContent>
                 <CardFooter>
-                    <CopyRightAlert />
+                    <CopyRightAlert copyRightInfo={copyRightInfo} />
                 </CardFooter>
             </Card>
         </section>
     )
 }
 
-function HeaderSection() {
+function HeaderSection({ title, githubUrl }) {
     return (
         <section className={``}>
             <Card className={`flex justify-between h-fit py-5 px-7`}>
-                <CardTitle className={"text-3xl font-extrabold"}>Inventory Management System</CardTitle>
-                <Button variant={'secondary'} className={`flex gap-3 h-full`}>
-                    Open in GitHub
-                    <ArrowUpRight />
-                </Button>
+                <CardTitle className={"text-3xl font-extrabold"}>{title}</CardTitle>
+                <Link href={githubUrl}>
+                    <Button variant={'secondary'} className={`flex gap-3 h-full`}>
+                        Open in GitHub
+                        <ArrowUpRight />
+                    </Button>
+                </Link>
             </Card>
         </section>
     )
 }
 
-export default function Page({params}) {
-    const {projectId} = params;
+export default function Page({ params }) {
+    const { projectId } = params;
+    const [projectData, setProjectData] = useState({
+        id: "",
+        title: "",
+        description: "",
+        image: "", // path of the image on the file system
+        githubUrl: "",
+        demoUrl: "",
+        copyRightInfo: "",
+        problem: "",
+        solution: "",
+        techStack: ["", "", ""],
+        features: [
+            {
+                title: "",
+                description: ""
+            },
+            {
+                title: "",
+                description: ""
+            },
+            {
+                title: "",
+                description: ""
+            }
+        ]
+    })
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getProjectData = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`/api/projects/${projectId}`);
+                setProjectData(response.data);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        getProjectData();
+    }, [])
+
+    console.log(projectData);
+    
     return (
-        <ContentLayout pathname={`portfolio/${projectId}`}>
-            <HeaderSection/>
+        <ContentLayout pathname={`portfolio/${projectData.title}`}>
+            <HeaderSection 
+                title={projectData.title}
+                githubUrl={projectData.githubUrl} 
+            />
+            
             <div className={`my-10 w-full justify-center flex`}>
-                <Image src={"/Project1.png"} alt={'Project Image'} width={"800"} height={"400"} />
+                <Image src={projectData.image} alt={'Project Image'} width={"800"} height={"400"} />
             </div>
-            <BodySection />
+            <BodySection  
+                problem={projectData.problem}
+                solution={projectData.solution}
+                features={projectData.features}
+                techStack={projectData.techStack}
+                copyRightInfo={projectData.copyRightInfo}
+                demoUrl={projectData.demoUrl}
+            />
         </ContentLayout>
     )
 }
