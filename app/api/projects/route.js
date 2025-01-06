@@ -1,5 +1,6 @@
-import { projects } from "@/data/projects";
 import { NextResponse } from "next/server";
+import Project from "@/models/project";
+import { connectToDatabase } from "@/data/database";
 
 export async function GET() {
     try {
@@ -12,5 +13,7 @@ export async function GET() {
 
 async function getAllProjects() {
     // Replace with your actual data fetching logic, e.g., database query
-    return projects
+    await connectToDatabase();
+    const projects = Project.find({});
+    return projects;
 }

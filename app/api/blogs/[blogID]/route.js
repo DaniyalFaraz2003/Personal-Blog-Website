@@ -1,5 +1,6 @@
-import { blogs } from '@/data/blogs'; // Adjust the path as necessary
 import { NextResponse } from 'next/server';
+import { connectToDatabase } from '@/data/database';
+import Blog from '@/models/blog';
 
 export async function GET(request, { params }) {
     const blogID = (await params).blogID;
@@ -15,5 +16,10 @@ export async function GET(request, { params }) {
 async function fetchBlogByID(id) {
     // Mock function to simulate fetching data by ID
     // Replace this with your actual data fetching logic
-    return blogs.find(blog => blog.id === id);
+    await connectToDatabase();
+    const blog = await Blog.findById(id);
+    if (!blog) {
+        return null;
+    }
+    return blog;
 }

@@ -1,11 +1,15 @@
-const blogSchema = {
-    id: "",
-    title: "",
-    username: "",
-    date: "",
-    description: "",
-    badges: ["", "", ""],
-    image: "", // path of the image on the file system
-    latest: true,
-    content: ""
-}
+import { Schema, model, models } from "mongoose";
+
+const blogSchema = new Schema({
+    title: String,
+    username: String,
+    date: String,
+    description: String,
+    badges: [String],
+    image: String,
+    latest: Boolean,
+    content: String
+})
+
+const Blog = models.Blog || model('Blog', blogSchema);
+export default Blog;

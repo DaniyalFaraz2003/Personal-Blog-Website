@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { blogs } from '@/data/blogs';
+import Blog from '@/models/blog';
+import { connectToDatabase } from '@/data/database';
 
 export async function GET() {
     try {
@@ -15,5 +16,7 @@ export async function GET() {
 
 async function getAllBlogs() {
     // Replace with your actual data fetching logic, e.g., database query
-    return blogs
+    await connectToDatabase();
+    const blogs = await Blog.find({});
+    return blogs;
 }
