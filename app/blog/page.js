@@ -12,7 +12,7 @@ import axios from "axios"
 
 function SkeletonCard() {
     return (
-        <div className={"flex flex-row gap-5"}>
+        <div className={"flex flex-row gap-5 mb-5"}>
             <div className="basis-[75%]">
                 <div className={"space-y-4"}>
                     <Skeleton className={"w-[600px] h-[50px]"} />

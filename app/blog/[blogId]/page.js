@@ -1,12 +1,12 @@
 "use client";
 
-import {ContentLayout} from "@/components/admin-panel/content-layout";
+import { ContentLayout } from "@/components/admin-panel/content-layout";
 import Typography from '@tiptap/extension-typography'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import remarkHtml from 'remark-html'
 import remarkParse from 'remark-parse'
-import {unified} from 'unified'
+import { unified } from 'unified'
 import Highlight from '@tiptap/extension-highlight';
 import Image from '@tiptap/extension-image';
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
@@ -14,6 +14,8 @@ import { all, createLowlight } from 'lowlight'
 import 'highlight.js/styles/dark.css'; // Import your preferred highlight.js theme
 import * as React from "react";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { Skeleton } from "@/components/ui/skeleton";
 import "./editor.css"
 
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -26,35 +28,43 @@ lowlight.register('javascript', javascript);
 lowlight.register('python', python);
 lowlight.register('cpp', cpp)
 
-const markdownContent = `![javascript.png](/Project1.png)
-# **Introduction to C++ Programming**
-C++ is a powerful, high-performance programming language commonly used for system software, game development, and applications where efficiency is critical. This article introduces the basics of C++ and why it's a valuable skill for developers.
-## Why Learn C++?
-C++ offers several advantages, making it popular in both industry and academia:
-1. **Efficiency**: C++ provides high-level abstraction without sacrificing low-level control over hardware.
-2. **Versatility**: Suitable for a range of applications, from game engines to complex software.
-3. **Community and Resources**: With its long-standing popularity, there are countless resources and a large community of C++ developers.
-## Setting Up Your Environment
-To get started with C++, you'll need an IDE (Integrated Development Environment) or a text editor and a compiler. Some popular choices include:
-1. **Visual Studio Code**: Lightweight and customizable.
-2. **CLion**: Comprehensive IDE by JetBrains.
-3. **GCC (GNU Compiler Collection)**: Commonly used C++ compiler available on most systems.
-After installing, set up your first project to ensure everything works as expected.
-## Basic Syntax and Structure
-A simple C++ program includes several key components:
-\`\`\`cpp
-#include <iostream> // Standard input-output library
-
-int main() {
-    std::cout << \"Hello, World!\" << std::endl;
-    return 0;
+function SkeletonCard() {
+    return (
+        <div className={"flex  w-full flex-col items-center justify-center gap-5"}>
+            <Skeleton className={"w-[70%] h-[200px]"} />
+            <Skeleton className={"w-full h-[30px]"} />
+            <Skeleton className={"w-[80%] h-[30px]"} />
+            <Skeleton className={"w-[85%] h-[30px]"} />
+            <Skeleton className={"w-[73%] h-[30px]"} />
+            <Skeleton className={"w-full h-[30px]"} />
+        </div>
+    )
 }
-\`\`\``
 
 export default function Page({ params }) {
     const { blogId } = params;
-    const [markdown, setMarkdown] = useState(markdownContent);
+    const [markdown, setMarkdown] = useState("");
+    const [title, setTitle] = useState("");
     const [htmlContent, setHtmlContent] = useState("");
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchBlog = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`/api/blogs/${blogId}`);
+                setMarkdown(response.data.content);
+                setTitle(response.data.title);
+            } catch (err) {
+                // Handle error
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchBlog();
+    }, [])
 
     const editor = useEditor({
         extensions: [
@@ -97,8 +107,9 @@ export default function Page({ params }) {
 
 
     return (
-        <ContentLayout pathname={`blog/${blogId}`}>
-            <EditorContent editor={editor} className={"tiptap-editor"} />
+        <ContentLayout pathname={`blog/${title}`}>
+            {!loading && <EditorContent editor={editor} className={"tiptap-editor"} />}
+            {loading && <SkeletonCard />}
         </ContentLayout>
     );
 }
