@@ -1,8 +1,8 @@
 "use client"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ContentLayout } from "@/components/admin-panel/content-layout";
-import { Github, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Github, Facebook, Instagram, Linkedin, Terminal } from 'lucide-react';
 import { CardDescription, CardTitle, Card } from '@/components/ui/card';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -18,6 +18,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea';
+import { Spinner } from '@/components/ui/spinner';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import axios from "axios"
+
+
 
 const formSchema = z.object({
     name: z.string({ invalid_type_error: "Name must be string" }).min(2, "Name must be at least 2 characters").max(50).nonempty("Name is required"),
@@ -25,7 +30,37 @@ const formSchema = z.object({
     message: z.string().min(10, "Message must be at least 10 characters").max(500, "Message must be at most 500 characters").nonempty("Message is required"),
 })
 
+function AlertMessage({ title, message, visible, setVisible }) {
+
+    useEffect(() => {
+
+        // Hide the alert after 2 seconds
+        const timeout = setTimeout(() => {
+            setVisible(false);
+        }, 3000);
+
+        // Cleanup timeout
+        return () => clearTimeout(timeout);
+    }, [visible]);
+
+    return (
+        <div
+            className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-500 ${
+                visible ? "opacity-100" : "opacity-0"
+            }`}
+        >
+            <Alert className="relative z-10 w-96">
+                <Terminal className="h-4 w-4" />
+                <AlertTitle>{title}</AlertTitle>
+                <AlertDescription>{message}</AlertDescription>
+            </Alert>
+        </div>
+    );
+}
+
 export function ContactForm() {
+    const [submitting, setSubmitting] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     // 1. Define your form.
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -36,15 +71,27 @@ export function ContactForm() {
         },
     })
     // 2. Define a submit handler.
-    function onSubmit(values) {
+    async function onSubmit(values) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values)
-        form.reset()
+        try {
+            setSubmitting(true);
+            const response = await axios.post("/api/contact", values);
+            if (response.status === 200) {
+                setShowAlert(true);
+            }
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setSubmitting(false);
+            form.reset()
+        }
+
     }
 
     return (
         <Form {...form}>
+            <AlertMessage visible={showAlert} setVisible={setShowAlert} title={"Sucess!"} message={"Message sent successfully"}/>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
                     control={form.control}
@@ -85,7 +132,10 @@ export function ContactForm() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="w-24">
+                    {!submitting && "Submit"}
+                    {submitting && <Spinner className={"text-white dark:text-black"} />}
+                </Button>
             </form>
         </Form>
     )
@@ -96,6 +146,7 @@ export function ContactForm() {
 export default function Page() {
     return (
         <ContentLayout pathname={"Contact"}>
+
             <section className='flex gap-5'>
                 <div className='basis-1/2 flex flex-col gap-7 justify-center'>
                     <div className='flex gap-4'>
