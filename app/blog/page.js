@@ -1,11 +1,44 @@
 //page.tsx
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {Badge} from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import * as React from "react";
-import user from "@/public/user.png";
 import Link from "next/link"
+import { Skeleton } from "@/components/ui/skeleton";
+import axios from "axios"
+
+function SkeletonCard() {
+    return (
+        <div className={"flex flex-row gap-5"}>
+            <div className="basis-[75%]">
+                <div className={"space-y-4"}>
+                    <Skeleton className={"w-[600px] h-[50px]"} />
+                    <Skeleton className={"w-[600px] h-5"} />
+                    <Skeleton className={"w-[550px] h-5"} />
+                    <Skeleton className={"w-[570px] h-5"} />
+                    <Skeleton className={"w-[520px] h-5"} />
+                </div>
+                <div className="flex mt-5 justify-between">
+                    <div className={"flex gap-3"}>
+                        {[1, 2, 3, 4].map((badge, index) => <Skeleton key={index} className={"w-16 h-5"} />)}
+                    </div>
+                </div>
+            </div>
+            <div className={"basis-[25%] h-fit w-fit"}>
+                <div className="flex items-center space-x-4">
+                    <Skeleton className="h-12 w-12 rounded-full" />
+                    <div className="space-y-2">
+                        <Skeleton className="h-4 w-[150px]" />
+                        <Skeleton className="h-4 w-[100px]" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 function HeroSection() {
     return (
@@ -16,19 +49,24 @@ function HeroSection() {
     )
 }
 
-function Blogs() {
+function Blogs({ loading, blogs }) {
     return (
         <section>
             <div className={"flex flex-col gap-5 my-10"}>
-                {blogData.map((blog, index) => {
-                    return <BlogCard key={index} {...blog}/>
-                })}
+                {
+                    loading && [1, 2, 3].map((_, index) => <SkeletonCard key={index} />)
+                }
+                {
+                    !loading && blogs.map((blog, index) => {
+                        return <BlogCard key={index} {...blog} />
+                    })
+                }
             </div>
         </section>
     )
 }
 
-export function BlogCard({id, date, title, description, badges, image, username, latest}) {
+export function BlogCard({ id, date, title, description, badges, image, username, latest }) {
     return (
         <div className={"flex flex-row gap-5"}>
             <Card className="basis-[75%]">
@@ -38,7 +76,7 @@ export function BlogCard({id, date, title, description, badges, image, username,
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
                     <Link href={`/blog/${id}`} key={id}>
-                    <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
+                        <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
                     </Link>
                     <CardDescription className={"text-xl"}>
                         {description}
@@ -54,7 +92,7 @@ export function BlogCard({id, date, title, description, badges, image, username,
                 <CardHeader className={"space-y-2"}>
                     <CardDescription>{date}</CardDescription>
                     <div className={"flex gap-3"}>
-                        <Image src={image} alt={"user"} className='w-16 h-16 object-contain z-10'/>
+                        <Image src={image} alt={"user"} width={"64"} height={"64"} className='object-contain z-10' />
                         <div className={""}>
                             <CardTitle className={"text-lg"}>{username}</CardTitle>
                             <CardDescription>Author</CardDescription>
@@ -67,35 +105,30 @@ export function BlogCard({id, date, title, description, badges, image, username,
 }
 
 
-
-const blogData = [
-    {
-        id: 1,
-        username: "Daniyal Faraz",
-        date: new Date().toDateString(),
-        title: "Chris Corner: Open Striped",
-        description: "Recently Heikki Lotvonen cooked up a very cool idea: what if the colorization of code output on the web could be handled by the font itself. Syntax highlighting, as it were. So rather than accomplish this with a heaping pile of <span>s with classes to colorize the text, the font file knows how to apply […]",
-        badges: ["C++", "Programming", "Problem-Solving"],
-        image: user,
-        latest: true
-    },
-    {
-        id: 2,
-        username: "Daniyal Faraz",
-        date: new Date().toDateString(),
-        title: "WebAssembly vs JavaScript: A Comparison",
-        description: "WebAssembly and JavaScript are two pivotal technologies in modern web development, each with distinct strengths and applications. This article provides a comparison of WebAssembly and JavaScript, examining their performance, portability, ease of use, security, and community support [..]",
-        badges: ["JavaScript", "Programming"],
-        image: user,
-        latest: true
-    }
-]
-
 export default function Page() {
+    const [loading, setLoading] = useState(true);
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        const getBlogs = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get("/api/blogs");
+                setBlogs(response.data.blogs);
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        getBlogs();
+    }, [])
+
     return (
         <ContentLayout pathname="Blog">
             <HeroSection />
-            <Blogs />
+            <Blogs loading={loading} blogs={blogs} />
         </ContentLayout>
     );
 }
