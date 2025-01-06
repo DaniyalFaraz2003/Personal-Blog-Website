@@ -66,7 +66,7 @@ function Blogs({ loading, blogs }) {
     )
 }
 
-export function BlogCard({ id, date, title, description, badges, image, username, latest }) {
+export function BlogCard({ _id, date, title, description, badges, image, username, latest }) {
     return (
         <div className={"flex flex-row gap-5"}>
             <Card className="basis-[75%]">
@@ -75,7 +75,7 @@ export function BlogCard({ id, date, title, description, badges, image, username
                     {latest && <Badge className={"ml-auto text-md"} variant="secondary">Latest</Badge>}
                 </CardHeader>
                 <CardContent className={"space-y-4"}>
-                    <Link href={`/blog/${id}`} key={id}>
+                    <Link href={`/blog/${_id}`} key={_id}>
                         <CardTitle className={"font-extrabold text-5xl hover:underline hover:cursor-pointer"}>{title}</CardTitle>
                     </Link>
                     <CardDescription className={"text-xl"}>

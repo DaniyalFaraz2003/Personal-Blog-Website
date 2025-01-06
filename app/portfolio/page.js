@@ -29,11 +29,11 @@ function HeroSection() {
     )
 }
 
-function ProjectCard({ id, title, description, image }) {
+function ProjectCard({ _id, title, description, image }) {
     return (
         <Card className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
             <CardContent className="basis-[3/5]">
-                <Link href={`/portfolio/${id}`} key={id}>
+                <Link href={`/portfolio/${_id}`} key={_id}>
                     <CardTitle className="font-extrabold text-3xl mb-2 hover:cursor-pointer hover:underline">{title}</CardTitle>
                 </Link>
                 <CardDescription className="text-xl">{description}</CardDescription>

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Project from '@/models/project';
-import { connectToDatabase } from '@/data/database';
+import { connectToDatabase } from '@/config/database';
 
 export async function GET(request, { params }) {
     const projectID = (await params).projectID;

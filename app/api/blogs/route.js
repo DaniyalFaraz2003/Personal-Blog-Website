@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Blog from '@/models/blog';
-import { connectToDatabase } from '@/data/database';
+import { connectToDatabase } from '@/config/database';
 
 export async function GET() {
     try {
