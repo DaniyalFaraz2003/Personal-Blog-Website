@@ -58,7 +58,7 @@ function CopyRightAlert({ copyRightInfo }) {
 
 function BodySection({ problem, solution, features, techStack, copyRightInfo, demoUrl }) {
     return (
-        <section className={`flex w-full gap-7`}>
+        <section className={`flex md:flex-row lg:flex-row flex-col w-full gap-7`}>
             <Card className={`basis-[3/5] w-full pt-7`}>
                 <CardContent>
                     <CardTitle className={`${titleTypography}`}>Problem Statement</CardTitle><HeadingSeparator />
