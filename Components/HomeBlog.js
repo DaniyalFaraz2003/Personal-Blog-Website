@@ -28,7 +28,7 @@ function BlogCard({ date, title, description, badges, first, last }) {
     const [hovered, setHovered] = useState(false);
     return (
         <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className={"flex basis-1/3 gap-5"}>
-            <Card className={`bg-transparent ${first && "border-l-0"} ${last && "border-r-0"} rounded-none border-y-0 dark:hover:bg-[#2e2e33] hover:bg-gray-200`}>
+            <Card className={`bg-transparent border-x-0 md:border-x lg:border-x ${first && "md:border-l-0 lg:border-l-0"} ${last && "md:border-r-0 lg:border-r-0"} rounded-none border-y-0 dark:hover:bg-[#2e2e33] hover:bg-gray-200`}>
                 <CardHeader className={"flex flex-row items-center"}>
                     <Link href="/blog">
                         <CardTitle className={`text-xl font-bold hover:cursor-pointer ${hovered ? "underline" : ""}`}>{title}</CardTitle>
@@ -76,7 +76,7 @@ export default function HomeBlogs() {
                     <p className={"text-muted-foreground md:text-[20px] sm:text-[13px] xs:text-[10px] text-[10px]"}>To gain insights on problem solving and information on latest tech trends.</p>
 
                 </div>
-                <div className={`flex flex-row ${!loading && "space-x-0"} my-10 items-center justify-center`}>
+                <div className={`flex flex-col md:flex-row lg:flex-row ${!loading && "space-x-0"} my-10 items-center justify-center`}>
                     {
                         loading && [0, 1, 2].map((index) => {
                             return <SkeletonCard key={index} />

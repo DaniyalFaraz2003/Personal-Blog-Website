@@ -85,7 +85,7 @@ export default function HomeProject() {
                     <p className={"font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"}>My Projects</p>
                     <p className={"text-muted-foreground md:text-[20px] sm:text-[13px] xs:text-[10px] text-[10px]"}>That bring my ideas to life, showcasing my skills and creativity.</p>
                 </div>
-                <div className={"flex flex-row gap-3 w-full justify-center"}>
+                <div className={"flex flex-col md:flex-row lg:flex-row gap-3 w-full justify-center"}>
                     {
                         loading && [0, 1].map((index) => {
                             return <SkeletonCard key={index} />

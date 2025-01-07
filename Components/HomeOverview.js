@@ -185,7 +185,7 @@ const Overview = () => {
 
                     </motion.p>
 
-                    <div className='mt-16 flex flex-row gap-5'>
+                    <div className='mt-16 flex md:flex-row lg:flex-row gap-5 flex-col'>
                         {services.map((service, index) => {
                             return (<ServiceCard key={service.title} index={index} id={index} {...service} />)
                         })}
