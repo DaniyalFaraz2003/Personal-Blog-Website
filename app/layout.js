@@ -1,19 +1,15 @@
 import localFont from "next/font/local";
 import AdminPanelLayout from "@/components/admin-panel/admin-panel-layout";
-import {ThemeProvider} from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const overallFont = localFont({
+  src: "./fonts/Roboto-Regular.ttf",
+  variable: "--font-overall-all",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
 
 export const metadata = {
   title: "Daniyal Faraz | Portfolio",
@@ -22,20 +18,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-      <html lang="en">
+    <html lang="en">
       <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${overallFont.variable} font-overallFont antialiased`}
       >
-      <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-      >
-        <AdminPanelLayout>{children}</AdminPanelLayout>
-      </ThemeProvider>
+        >
+          <AdminPanelLayout>{children}</AdminPanelLayout>
+        </ThemeProvider>
       </body>
-      </html>
+    </html>
 
   );
 }

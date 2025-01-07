@@ -7,6 +7,9 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+	fontFamily: {
+		overallFont: ["var(--font-overall-all)"],
+	},
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
