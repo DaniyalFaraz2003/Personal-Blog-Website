@@ -31,7 +31,7 @@ function HeroSection() {
 
 function ProjectCard({ _id, title, description, image }) {
     return (
-        <Card className="flex flex-row items-center w-full p-4 border rounded-lg shadow-lg">
+        <Card className="flex flex-col md:flex-row lg:flex-row items-center w-full p-4 border rounded-lg shadow-lg">
             <CardContent className="basis-[3/5]">
                 <Link href={`/portfolio/${_id}`} key={_id}>
                     <CardTitle className="font-extrabold text-3xl mb-2 hover:cursor-pointer hover:underline">{title}</CardTitle>
@@ -43,7 +43,7 @@ function ProjectCard({ _id, title, description, image }) {
                 alt="project"
                 width={"256"}
                 height={"176"}
-                className="object-contain flex-shrink-0 ml-auto"
+                className="object-contain flex-shrink-0 md:ml-auto lg:ml-auto"
             />
         </Card>
     );
