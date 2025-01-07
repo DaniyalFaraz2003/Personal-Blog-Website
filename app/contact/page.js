@@ -147,7 +147,7 @@ export default function Page() {
     return (
         <ContentLayout pathname={"Contact"}>
 
-            <section className='flex gap-5'>
+            <section className='flex flex-col md:flex-row lg:flex-row gap-5'>
                 <div className='basis-1/2 flex flex-col gap-7 justify-center'>
                     <div className='flex gap-4'>
                         <Github size={24} />
