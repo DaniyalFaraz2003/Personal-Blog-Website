@@ -174,7 +174,7 @@ const Overview = () => {
                 <div className="z-0">
                     <motion.div variants={textVariant()}>
                         <p className={"sm:text-[18px] text-[14px] uppercase tracking-wider"}>Introduction</p>
-                        <p className={"font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"}>Overview.</p>
+                        <p className={"font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]"}>Overview</p>
                     </motion.div>
                     <motion.p variants={fadeIn("", "", 0.1, 1)} className='mt-4 text-[17px] max-w-3xl leading-[30px]'>
                         I am Daniyal Faraz and I have been in tech for almost 5 years now. Gaining proficiency in
