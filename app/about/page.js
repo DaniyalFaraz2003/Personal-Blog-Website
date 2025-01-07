@@ -59,7 +59,7 @@ function Timeline() {
 function HeroSection() {
     return (
         <section className={`flex flex-col items-center justify-center gap-5`}>
-            <Image src={MeImage} alt={"My Image"} className={`w-[15%] h-[15%] rounded-3xl animate-float`}></Image>
+            <Image src={MeImage} alt={"My Image"} className={`w-[30%] h-[30%] md:w-[15%] md:h-[15%] lg:w-[15%] lg:h-[15%] rounded-3xl animate-float`}></Image>
             <h1 className={"text-7xl font-extrabold text-center mt-5"}>Daniyal Faraz</h1>
             <p className={"text-xl font-leading w-[50%] text-wrap text-center"}>Student, Programmer and Musician.</p>
         </section>
