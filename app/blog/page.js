@@ -68,7 +68,7 @@ function Blogs({ loading, blogs }) {
 
 export function BlogCard({ _id, date, title, description, badges, image, username, latest }) {
     return (
-        <div className={"flex flex-row gap-5"}>
+        <div className={"flex md:flex-row lg:flex-row flex-col-reverse gap-5"}>
             <Card className="basis-[75%]">
                 <CardHeader className={"flex flex-row items-center"}>
                     <CardDescription className={"text-lg"}>📝 Blog Post</CardDescription>
