@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from 'react'
-import { ContentLayout } from "@/components/admin-panel/content-layout";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button"
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
+import { Badge } from "@/Components/ui/badge";
+import { Button } from "@/Components/ui/button"
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/Components/ui/card';
 import {
     AlertDialog,
     AlertDialogAction,
@@ -16,7 +16,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
     AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/Components/ui/alert-dialog"
 import Link from 'next/link';
 import axios from "axios"
 

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 import {
     Card,
     CardContent,
@@ -13,7 +13,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
+} from "@/Components/ui/card"
 
 import ghIcon from "../public/gh-icon.png"
 

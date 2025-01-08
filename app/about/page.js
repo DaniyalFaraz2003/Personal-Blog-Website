@@ -1,8 +1,8 @@
 import React from 'react'
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
 import Image from 'next/image'
 import MeImage from "@/public/Me.jpg";
-import { CardContent, CardTitle, CardDescription } from '@/components/ui/card';
+import { CardContent, CardTitle, CardDescription } from '@/Components/ui/card';
 
 function AboutMe() {
     return (

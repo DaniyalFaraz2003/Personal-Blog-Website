@@ -1,6 +1,6 @@
 import React from "react";
-import LoadingComponent from "@/components/LoadingComponent";
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import LoadingComponent from "@/Components/LoadingComponent";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
 
 const Loading = () => {
     return (

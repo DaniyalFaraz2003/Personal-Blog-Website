@@ -1,13 +1,13 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
 import { Github, Facebook, Instagram, Linkedin, Terminal } from 'lucide-react';
-import { CardDescription, CardTitle, Card } from '@/components/ui/card';
+import { CardDescription, CardTitle, Card } from '@/Components/ui/card';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/Components/ui/button"
 import {
     Form,
     FormControl,
@@ -15,11 +15,11 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from '@/components/ui/textarea';
-import { Spinner } from '@/components/ui/spinner';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+} from "@/Components/ui/form"
+import { Input } from "@/Components/ui/input"
+import { Textarea } from '@/Components/ui/textarea';
+import { Spinner } from '@/Components/ui/spinner';
+import { Alert, AlertTitle, AlertDescription } from '@/Components/ui/alert';
 import Link from 'next/link';
 import axios from "axios"
 

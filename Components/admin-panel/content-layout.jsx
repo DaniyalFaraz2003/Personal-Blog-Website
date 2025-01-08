@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/admin-panel/navbar";
+import { Navbar } from "@/Components/admin-panel/navbar";
 
 export function ContentLayout({
   pathname,

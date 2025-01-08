@@ -1,6 +1,6 @@
 "use client";
 
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
 import Typography from '@tiptap/extension-typography'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
@@ -15,7 +15,7 @@ import 'highlight.js/styles/dark.css'; // Import your preferred highlight.js the
 import * as React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/Components/ui/skeleton";
 import "./editor.css"
 
 import javascript from 'highlight.js/lib/languages/javascript';

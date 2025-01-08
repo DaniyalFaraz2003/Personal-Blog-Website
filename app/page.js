@@ -1,11 +1,11 @@
 //page.tsx
-import { ContentLayout } from "@/components/admin-panel/content-layout";
-import HeroSection from "@/components/HeroSection";
-import StarsCanvas from "@/components/Stars";
-import Overview from "@/components/HomeOverview"
-import HomeBlog from "@/components/HomeBlog"
-import HomeProject from "@/components/HomeProject"
-import HomeSkills from "@/components/HomeSkills"
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
+import HeroSection from "@/Components/HeroSection";
+import StarsCanvas from "@/Components/Stars";
+import Overview from "@/Components/HomeOverview"
+import HomeBlog from "@/Components/HomeBlog"
+import HomeProject from "@/Components/HomeProject"
+import HomeSkills from "@/Components/HomeSkills"
 
 export default function Page() {
     return (

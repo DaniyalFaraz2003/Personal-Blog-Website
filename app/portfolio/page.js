@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from 'react'
-import { Skeleton } from '@/components/ui/skeleton';
-import { ContentLayout } from "@/components/admin-panel/content-layout";
+import { Skeleton } from '@/Components/ui/skeleton';
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
 import Image from 'next/image'
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/Components/ui/card";
 import axios from "axios"
 import Link from 'next/link'
 

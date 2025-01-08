@@ -1,14 +1,14 @@
 "use client";
 import Link from 'next/link'
 import axios from "axios";
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/Components/ui/skeleton"
 import {
     Card,
     CardContent,
     CardDescription,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
+} from "@/Components/ui/card"
 import { useEffect, useState } from "react";
 
 

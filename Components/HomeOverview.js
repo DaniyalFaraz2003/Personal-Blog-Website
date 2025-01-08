@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardDescription } from '@/components/ui/card'
+import { Card, CardDescription } from '@/Components/ui/card'
 import React, {useEffect} from 'react'
 import Image from "next/image"
 import { Tilt } from 'react-tilt'

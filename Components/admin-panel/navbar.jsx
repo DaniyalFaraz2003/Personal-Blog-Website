@@ -1,6 +1,6 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { UserNav } from "@/components/admin-panel/user-nav";
-import { SheetMenu } from "@/components/admin-panel/sheet-menu";
+import { ModeToggle } from "@/Components/mode-toggle";
+import { UserNav } from "@/Components/admin-panel/user-nav";
+import { SheetMenu } from "@/Components/admin-panel/sheet-menu";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/Components/ui/breadcrumb"
 
 function BreadCrumbComponent({pathname}) {
   return (

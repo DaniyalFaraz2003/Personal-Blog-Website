@@ -2,12 +2,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ContentLayout } from "@/components/admin-panel/content-layout";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ContentLayout } from "@/Components/admin-panel/content-layout";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card";
+import { Badge } from "@/Components/ui/badge";
 import Image from "next/image";
 import Link from "next/link"
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/Components/ui/skeleton";
 import axios from "axios"
 
 function SkeletonCard() {
