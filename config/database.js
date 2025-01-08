@@ -12,7 +12,7 @@ export const connectToDatabase = async () => {
 
     try {
         await mongoose.connect(process.env.MONGO_URI, {
-            useUnifiedTopology: true
+            useNewUrlParser: true,
         });
         isConnected = true;
         console.log("Connected to database");
