@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Understanding Asynchronous JavaScript",
+        "username": "Daniyal Faraz",
+        "date": "2023-09-15T14:30:00Z",
+        "description": "Learn about asynchronous programming in JavaScript.",
+        "badges": [
+            "JavaScript",
+            "Asynchronous",
+            "Programming"
+        ],
+        "image": "/user.png",
+        "latest": false,
+        "content": "# Understanding Asynchronous JavaScript\nAsynchronous programming in JavaScript allows you to perform tasks without blocking the main thread. This is essential for tasks like fetching data from an API.\n## Callbacks\nCallbacks are a common way to handle asynchronous code. For example, you can use a callback function with `setTimeout()`:\n```javascript\nsetTimeout(() => {\n    console.log('Delayed message');\n}, 1000);\n```\n"
+    }, 
+    {
+        "title": "",
+        "username": "",
+        "date": "",
+        "description": "",
+        "badges": [],
+        "image": "/user.png",
+        "latest": false,
+        "content": ""
+    }
+]

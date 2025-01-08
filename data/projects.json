@@ -1,0 +1,173 @@
+[
+    {
+        "title": "Cafe Management System",
+        "description": "An optimized and easy to use system designed to manage a cafe's operations of recording, storing user information, generating statistics and dashboard based on user meal data and creating and downloading reports.",
+        "image": "/cafe_project_img.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/cafe-monitoring-system",
+        "demoUrl": "https://github.com/DaniyalFaraz2003/cafe-monitoring-system",
+        "copyRightInfo": "© 2024 by Daniyal Faraz. All rights reserved.",
+        "problem": "During my tenure as a software engineer intern at Contour Software, I noticed that their cafe's operations were not being managed efficiently. The cafe was using a manual system to record user information, generate statistics, and create reports. This led to errors, delays, and inefficiencies in the cafe's operations.",
+        "solution": "To address this issue, I developed a Cafe Management System that automates the cafe's operations. The system allows the cafe staff to record user information, generate statistics and dashboard based on user meal data, and create and download reports. This system is optimized, easy to use, and improves the cafe's efficiency.",
+        "techStack": ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MySQL", "Chart.js", "Tailwind CSS", "React JS", "Redux"],
+        "features": [
+            {
+                "title": "Responsive Design",
+                "description": "The website is fully responsive and works on all devices."
+            },
+            {
+                "title": "A fully functional dashboard",
+                "description": "The system includes a dashboard that displays daily, weekly and monthly statistics and user meal data."
+            },
+            {
+                "title": "Easy to Use",
+                "description": "User-friendly interface for easy navigation and reading."
+            },
+            {
+                "title": "Admin Panel",
+                "description": "An admin panel to manage user information, Update Inventory, and post user feedbacks."
+            },
+            {
+                "title": "Report Generation",
+                "description": "The system allows the cafe staff to generate and download reports in Excel format."
+            }
+        ]
+    },
+    {
+        "title": "Health And Fitness Website",
+        "description": "A website designed to provide users with tools and statistics, as well as functionality to share health tips, through creating articles, with others in order for them to lead a healthy lifestyle.",
+        "image": "/fitness-web-img.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/Fitness-Website",
+        "demoUrl": "http://fitness-web-app.s3-website.eu-north-1.amazonaws.com/",
+        "copyRightInfo": "© 2024 by Daniyal Faraz. All rights reserved.",
+        "problem": "There was a lack of an all in one platform where users could get health tips, track their fitness progress, and share their knowledge with others. This led to users having to use multiple platforms to achieve their health and fitness goals.",
+        "solution": "An all in one platform that provides users with tools and statistics to track their fitness progress, as well as functionality to share health tips through creating articles with others. This platform allows users to lead a healthy lifestyle by providing them with the necessary tools and information.",
+        "techStack": ["Node.js", "Express", "React JS", "Tailwind CSS", "Three JS"],
+        "features": [
+            {
+                "title": "User Friendly",
+                "description": "A user-friendly interface that is easy to navigate and use."
+            },
+            {
+                "title": "Articles",
+                "description": "Users can create and post articles to share health tips with others."
+            },
+            {
+                "title": "Exercise Routine Generator",
+                "description": "A personalized exercise routine generator based on user input related to time, target muscle and difficulty."
+            },
+            {
+                "title": "Health Statistics Calculators",
+                "description": "Calculator tools to calculate BMI, BMR, and other health statistics."
+            }
+        ]
+    },
+    {
+        "title": "Pathfinding Algorithms Visualizer",
+        "description": "An interactice C++ application designed to visualize pathfinding algorithms such as Dijkstra's, A* and Greedy Best First Search on a grid along with visualizing the maze generation algorithms.",
+        "image": "/pathfinder.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/Path-Finding-Algorithm-Visualizer",
+        "demoUrl": "https://github.com/DaniyalFaraz2003/Path-Finding-Algorithm-Visualizer",
+        "copyRightInfo": "© 2024 by Daniyal Faraz. All rights reserved.",
+        "problem": "Visualizing pathfinding algorithms such as Dijkstra's, A* and Greedy Best First Search on a grid can be difficult and time-consuming. There was a need for an interactive application that could visualize these algorithms on a grid to better help understand their working.",
+        "solution": "A C++ application that visualizes pathfinding algorithms such as Dijkstra's, A* and Greedy Best First Search on a grid. The application also visualizes maze generation algorithms to help users better understand the working of these algorithms.",
+        "techStack": ["C++", "SFML", "OOP", "Design Patterns", "Algorithms", "Data Structures", "Pathfinding", "Maze Generation"],
+        "features": [
+            {
+                "title": "Interactive GUI",
+                "description": "A user-friendly and easy to understand GUI that allows users to easily interact with the application."
+            },
+            {
+                "title": "Smooth Animations of Algorithms",
+                "description": "The application provides smooth animations of pathfinding and maze generation algorithms."
+            },
+            {
+                "title": "Pathfinding Algorithms",
+                "description": "The application allows the users to choose from a diverse set of pathfinding algorithms that are, Dijkstra's, A*, DFS and BFS to visualize."
+            },
+            {
+                "title": "Maze Generation Algorithms",
+                "description": "The application allows the users to choose from a rich set of maze generation algorithms to choose from that are, Prims, Kruskals, DFS and Wilsons algorithms to visualize."
+            }
+        ]
+    },
+    {
+        "title": "Library Management System",
+        "description": "A system designed to streamline and automate the process of managing a library's operations of recording, storing user information and generating fines based on user book data.",
+        "image": "/flask-library-img.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/Flask-Python-Library-Management",
+        "demoUrl": "https://github.com/DaniyalFaraz2003/Flask-Python-Library-Management",
+        "copyRightInfo": "© 2024 by Daniyal Faraz. No rights reserved.",
+        "problem": "To manage a library's operations, the library staff had to manually record user information, generate fines based on user book data, and store user information. This led to errors, delays, and inefficiencies in the library's operations.",
+        "solution": "Automating the library's operations by developing a Library Management System that allows the library staff to record user information, generate fines based on user book data, and store users' borrowed books' status. This system is optimized, easy to use, lightweight, and improves the library's efficiency.",
+        "techStack": ["Python", "Flask", "APIs", "HTML", "CSS", "JavaScript", "MySQL"],
+        "features": [
+            {
+                "title": "Admin Panel",
+                "description": "A user-friendly admin panel to manage user information, generate fines, and store user book data."
+            },
+            {
+                "title": "User Interface",
+                "description": "Borrowers can easily borrow books, return books and pay fines using the system by logging in to their account."
+            },
+            {
+                "title": "Book Management",
+                "description": "A vast database to store the collection of books that can be borrowed by the users and managed by the admin."
+            },
+            {
+                "title": "Fines Generation",
+                "description": "The admin can generate fines based on user book data and store the fines status in the system for easy tracking."
+            },
+            {
+                "title": "Books Borrowing",
+                "description": "The system handles the borrowing and returning of books by the users and stores the status of the borrowed books."
+            }
+            
+        ]
+    },
+    {
+        "title": "Typing Speed Checker",
+        "description": "An application designed for users to check their typing speed and accuracy.",
+        "image": "/typing-app-img.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/Typing-App",
+        "demoUrl": "https://github.com/DaniyalFaraz2003/Typing-App",
+        "copyRightInfo": "© 2023 by Daniyal Faraz. All rights reserved.",
+        "problem": "An easy to use and interactive application was needed to check the typing speed and accuracy of users. This would help users improve their typing skills and increase their productivity.",
+        "solution": "A typing application that allows users to check their typing speed and accuracy. The application provides users with a typing test that they can take to check their typing speed and accuracy as well as view their statistics through appealing visuals.",
+        "techStack": ["Python", "PyGame", "Tiled", "Pixel Art", "Algorithms", "Data Structures"],
+        "features": [
+            {
+                "title": "User Interface",
+                "description": "A very user friendly and interactive interface that allows users to easily interact with the application."
+            },
+            {
+                "title": "Typing Test",
+                "description": "A typing test having users to type a paragraph and record their statistics like wpm (Words Per Minute) and accuracy simultaneously as they type."
+            },
+            {
+                "title": "Statistics Display",
+                "description": "Visuals like graphs and charts to display the user's typing speed and accuracy statistics over time."
+            },
+            {
+                "title": "Typing Game",
+                "description": "An interactive typing game where the user has to type the letters each enemy is carrying to destroy it before they reach the end of the screen."
+            }
+        ]
+    },
+    {
+        "title": "",
+        "description": "",
+        "image": "",
+        "githubUrl": "",
+        "demoUrl": "",
+        "copyRightInfo": "",
+        "problem": "",
+        "solution": "",
+        "techStack": [],
+        "features": [
+            {
+                "title": "",
+                "description": ""
+            }
+        ]
+    }
+]
