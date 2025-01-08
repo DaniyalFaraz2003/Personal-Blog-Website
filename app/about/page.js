@@ -15,7 +15,7 @@ function AboutMe() {
             <p className="text-gray-500 dark:text-gray-400">Who I am.</p>
             <div>
                 <p className="text-lg mt-5">
-                    I am a student, programmer and musician. I love to code and play music. I have been coding for the past 5 years and have worked on a variety of projects. I am currently studying computer science at a leading university in the United States. I am passionate about technology and its potential to change the world
+                    I am a student, programmer and musician. I love to code and play music. I have been coding for the past 5 years and have worked on a variety of projects made in languages like python, C++, Java and JavaScript. I am currently studying computer science at a leading university in Pakistan named FAST National University of Computing And Emerging Sciences. I am passionate about technology and its potential to change the world
                 </p>
             </div>
         </div>
@@ -68,24 +68,34 @@ function HeroSection() {
 
 const timelineData = [
     {
-        date: "March 14, 1879",
-        title: "Invention of Quantum Computing",
-        description: "Scientists at a leading research institution unveil a groundbreaking breakthrough in quantum computing."
+        date: "Current",
+        title: "Freelancer and Student",
+        description: "Currently I am working as a freelancer and continuing my studies in computer science."
     },
     {
-        date: "April 1, 1939",
-        title: "First Quantum Computer",
-        description: "The first quantum computer is built by a team of researchers in a laboratory in the United States."
+        date: "June 2024",
+        title: "Second Internship",
+        description: "I landed a second internship as a DevOps intern at a leading software company in Pakistan called Contour Software where I developed exceptional public speaking skills and confidence to speak to a large audience as well as DevOps practices and tools like AWS and Microsoft Azure."
     },
     {
-        date: "June 12, 1954",
-        title: "Quantum Computing Research",
-        description: "A group of scientists in Europe publish a paper on quantum computing research."
+        date: "July 2023",
+        title: "First Internship",
+        description: "I got my first internship as a software developer at Intgrated Health Services company in Pakistan where I learnt web development and deployed my skills in creating amazing full stack projects."
     },
     {
-        date: "December 31, 1979",
-        title: "Quantum Computing Breakthrough",
-        description: "A team of researchers in Asia makes a significant breakthrough in quantum computing."
+        date: "August 2022",
+        title: "Joined FAST National University",
+        description: "I had completed my A levels with 3A*s and joined FAST National University, enrolling for the bachelors of computer science degree."
+    },
+    {
+        date: "June 2023",
+        title: "Completed advanced python course",
+        description: "I completed the python bootcamp course enabling me to make interesting projects using the python language."
+    },
+    {
+        date: "January 2019",
+        title: "Started off with my first program",
+        description: "I wrote my first hello world program in python as part of my new year's resolution to learn to code this year."
     }
 ]
 

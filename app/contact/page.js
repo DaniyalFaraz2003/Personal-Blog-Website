@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea';
 import { Spinner } from '@/components/ui/spinner';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import Link from 'next/link';
 import axios from "axios"
 
 
@@ -150,10 +151,10 @@ export default function Page() {
             <section className='flex flex-col md:flex-row lg:flex-row gap-5'>
                 <div className='basis-1/2 flex flex-col gap-7 justify-center'>
                     <div className='flex gap-4'>
-                        <Github size={24} />
-                        <Facebook size={24} />
-                        <Instagram size={24} />
-                        <Linkedin size={24} />
+                        <Link href={"https://github.com/DaniyalFaraz2003"}><Github size={24} /></Link>
+                        <Link href={"https://www.facebook.com/daniyal.faraz.37/"}><Facebook size={24} /></Link>
+                        <Link href={"https://www.instagram.com/daniyalfaraz2003/"}><Instagram size={24} /></Link>
+                        <Link href={"https://www.linkedin.com/in/daniyal-faraz-911360242/"}><Linkedin size={24} /></Link>
                     </div>
                     <CardTitle className="text-6xl">I Look Forward to <span className='text-sky-500'>Connecting</span> With You!</CardTitle>
                     <CardDescription className='text-lg font-bold'>
