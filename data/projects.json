@@ -154,6 +154,55 @@
         ]
     },
     {
+        "title": "Social Media Application",
+        "description": "A social media application I created specifically for my university students to connect with each other and share different types of posts.",
+        "image": "social-media-app-img.png",
+        "githubUrl": "https://github.com/DaniyalFaraz2003/SDA-JavaFX-Social-Media-Application",
+        "demoUrl": "https://github.com/DaniyalFaraz2003/SDA-JavaFX-Social-Media-Application",
+        "copyRightInfo": "© 2024 by Daniyal Faraz. All rights reserved.",
+        "problem": "There was a lack of a social media platform specifically for my university students to connect with each other and share different types of posts. This led to students having to use more generic platforms like facebook and instagram to connect with each other.",
+        "solution": "I developed a social media application entirely for my university students to connect with each other and share different types of posts. This platform allows them to create and share posts, make friends, chat with their friends, and share activities about their university life.",
+        "techStack": ["Java", "JavaFX", "IntelliJ IDEA", "Scene Builder", "MySQL", "Design Patterns", "Data Structures", "OOP"],
+        "features": [
+            {
+                "title": "User Friendly",
+                "description": "A user friendly design and interface that is easy to use and navigate."
+            },
+            {
+                "title": "Secure Login",
+                "description": "Robust account security preventing data loss and leakage. Passwords stored in database are hashed and salted. Checks make sure only the university students can sign up to the application."
+            },
+            {
+                "title": "Managing Posts",
+                "description": "The user, who is basically the student, can log in to their profiles and create different types of posts which the other students can see and comment and react to."
+            },
+            {
+                "title": "Making Friends",
+                "description": "Students can send friend requests to and accept friends requests from other students which allows them to get notified about their friends activity as well as chat with them."
+            },
+            {
+                "title": "Chat System",
+                "description": "The system is equipped with a robust chat system allowing students to send and recieve messages to and from their friends."
+            },
+            {
+                "title": "Notifications",
+                "description": "The system sends notifications to the students about their friends activity and their own activity on the platform."
+            },
+            {
+                "title": "Profile Management",
+                "description": "Students can manage their profiles by changing their profile picture, updating their bio and other information."
+            },
+            {
+                "title": "Activity Feed",
+                "description": "The system has an activity feed that shows the students the latest posts from their friends and the students they are following."
+            },
+            {
+                "title": "Search",
+                "description": "The system has a search feature that allows students to search for other students on the platform."
+            }
+        ]
+    },
+    {
         "title": "",
         "description": "",
         "image": "",
