@@ -156,7 +156,7 @@
     {
         "title": "Social Media Application",
         "description": "A social media application I created specifically for my university students to connect with each other and share different types of posts.",
-        "image": "social-media-app-img.png",
+        "image": "/social-media-app-img.png",
         "githubUrl": "https://github.com/DaniyalFaraz2003/SDA-JavaFX-Social-Media-Application",
         "demoUrl": "https://github.com/DaniyalFaraz2003/SDA-JavaFX-Social-Media-Application",
         "copyRightInfo": "© 2024 by Daniyal Faraz. All rights reserved.",
