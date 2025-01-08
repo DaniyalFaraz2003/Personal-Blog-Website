@@ -1,11 +1,11 @@
 import localFont from "next/font/local";
 import AdminPanelLayout from "@/Components/admin-panel/admin-panel-layout";
 import { ThemeProvider } from "@/Components/ThemeProvider";
-import "./globals.css";
+import "@/app/globals.css";
 
 
 const overallFont = localFont({
-  src: "./fonts/Roboto-Regular.ttf",
+  src: "/fonts/Roboto-Regular.ttf",
   variable: "--font-overall-all",
   weight: "100 900",
 });
